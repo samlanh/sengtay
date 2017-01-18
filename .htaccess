@@ -1,0 +1,17 @@
+RewriteEngine ON
+
+
+RewriteRule ^index?$ index.php
+RewriteRule ^index.html?$ index.php
+
+RewriteRule ^index.html?$ admin/logout.php
+
+RewriteRule ^admin/index.html?$ admin/index.php
+RewriteRule ^admin/dashboard.html?$ admin/dashboard.php
+RewriteRule ^admin/user([a-zA-z0-9]+) admin/user.php?do=$1
+RewriteRule ^admin/menu([a-zA-z0-9]+) admin/menu.php?do=$1
+RewriteRule ^admin/category([a-zA-z0-9]+) admin/category.php?do=$1
+
+RewriteRule ^admin/user([a-zA-z0-9]+)/([a-zA-z0-9]+) admin/user.php?do=$1&id=$2
+
+

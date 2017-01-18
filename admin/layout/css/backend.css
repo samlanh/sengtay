@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.navbar-collapse ul li:hover{
+    border-right: 2px solid rgb(255, 44, 44);
+}
+.frmLogin{
+    width: 300px;
+    margin: 100px auto;
+
+}
+
+.frmLogin .bodyLogin{
+    padding: 15px 10px;
+}
+.frmLogin .headingLogin{
+    border-radius: 0px;
+    font-size: 20px;
+}
+.frmLogin .marginLogin{
+    margin: 5px auto;
+}
+.createUser{
+    padding: 10px;
+}
+.tblUserTr{
+    color: #9a9aa5;
+    font-size:small;
+}
+.controlForm{
+    margin-top: -70px;
+}
