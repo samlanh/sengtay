@@ -3,9 +3,6 @@ include "init.php";
 ?>
     <div id="page-wrapper" style="padding: 15px; width: 1080px;" >
 
-
-
-
         <?php
 
       if (isset($_POST['btnAdd'])){

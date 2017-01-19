@@ -69,7 +69,7 @@ include "init.php";
                                                             $stmt=$con->prepare("
                                                                       
                                                                       SELECT tbl_article.*,tbl_category.category as category FROM tbl_article INNER JOIN tbl_category
-                                                                      ON tbl_article.category_id=tbl_category.category_id  WHERE tbl_article.trust='1'
+                                                                      ON tbl_article.category_id=tbl_category.category_id  WHERE tbl_article.trust='1' ORDER BY article DESC
                                                                       
                                   
                                                               ");
@@ -89,7 +89,9 @@ include "init.php";
 
                                                                 echo"<td><input type='checkbox' name='del[]' value='".$row['artcle_id']."' ></td>";
                                                                 echo "<td>". $i."</td>";
-                                                                echo "<td><img src='../images/A-6530.jpg' style='width: 10px;height: 10px;'></td>";
+                                                              ?>
+                                                                <td><img src="../img/<?php echo $row['images_pro']?>" style="max-width: 20px; max-height: 18px;" ></td>
+                                                                <?php
                                                                 echo "<td><a title='Click to update Article' href='article.php?do=edit".$row['artcle_id']."'>".$row['article']."</a></td>";
                                                                 echo "<td class='tblUserTr'>".$row['category']."</td>";
                                                              echo "<td class='tblUserTr'>".$row['new_price']."$</td>";

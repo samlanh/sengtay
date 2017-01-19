@@ -6,6 +6,34 @@ $(function (){
     $('.confirm').click(function () {
         return confirm("Are you sure ?");
     });
+})
+
+
+
+$('#menuCreatePost').change(function () {
+  var selectChangemenu=$(this).find("option:selected").val();
+    console.log(selectChangemenu);
+
+  var dataString='menu_id='+selectChangemenu;
+
+
+    $.ajax({
+        url:"include/ajax/Select_categories.php",
+        method:"POST",
+        cache:false,
+        data:dataString,
+        success:function (data) {
+            $("#selectCategoriesPost").html(data);
+            
+            var categ=$(this).val();
+            console.log(categ);
+        }
+
+
+    });
+
+
+
 });
 
 

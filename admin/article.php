@@ -10,7 +10,7 @@ if (isset($_SESSION['username'] )&& $_SESSION['status']){
     }else if ($do=='addart'){
         include "article/add.php";
     }else if ($do=='edit'){
-        include "category/edit.php";
+        include "article/edit.php";
     }
 }else{
     header('Location:index.html');
