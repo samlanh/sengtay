@@ -15,7 +15,7 @@
 		<div class="Extras">
 			<h2><b/>Extras</h2>
 			<a href=""><h5>Brands</h5></a>
-			<a href=""><h5>Specials</h5></a>
+			<a href="Specials_offers.php"><h5>Specials</h5></a>
 		</div>
 	</div>
 	<div class="copy_write">
