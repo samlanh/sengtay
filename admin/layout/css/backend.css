@@ -31,4 +31,8 @@
 .controlForm{
     margin-top: -70px;
 }
-.box_img{width: 150px; height: 100px; background: #ddd;float: left; border:solid #999;}
+.box_img{width: 170px; height: 120px; border-radius: 5px; float: left;border: 1px solid #eeeeee;padding: 10px; }
+.box_img img{
+    width: 150px;
+    height: 100px;
+}
