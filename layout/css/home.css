@@ -47,9 +47,9 @@ body
 .selected_st
 {	
 	background-image:url(http://localhost:81/STC computer/img/arrowdwon.png);
-	-moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+	-moz-appearance: 1;
+    -webkit-appearance: 1;
+    appearance: 1;
 }
 .input_sc
 {
@@ -222,7 +222,7 @@ table
 {
     border: 1px solid #ddd;
     margin-top: -9px;
-    box-shadow: 1px 1px 2px 1px #ccc;
+    box-shadow: 1px 0px 2px 0px #dfdfdf;
 }
 td
 {
@@ -268,7 +268,7 @@ td
 }
 .con_fo{width: 100%;}
 .copy_write{width: 100%;float: left; text-align: center;}
-.marquee_h{text-align: center;background: #fff !important;width: 1024;float: left; padding: 9px 16px;height: 50px;bottom: 0;position: fixed;}
+.marquee_h{text-align: center;background: #ecf0f1 !important;width: 100%;float: left; padding: 9px 16px;height: 50px;bottom: 0;position: fixed;border:solid #999 3px ; border-radius: 4px;}
 .marquee_h h5{font-size: 16px; color: red;}
 
 
@@ -285,3 +285,6 @@ td
     width: 230px;
     border-radius: 10px 10px 10px 10px;
 }
+#bd_f{  color: #fff;}
+.j_oppurt h1{padding: 10px 10px;}
+.j_oppurt h6{line-height: 10px !important;margin-left: 10px;font-family: "Open Sans",sans-serif; color: #555;}

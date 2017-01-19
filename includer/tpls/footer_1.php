@@ -1,10 +1,10 @@
-.
+<div style="color:#fff">.</div>
 <div class="footer">
 	<div style="text-align: center;" class="con_fo">
 		<div class="Information">
 			<h2><b/>Information</h2>
 			<a href="about.php"><h5 style="margin-left:-26px">About Us</h5></a>
-			<a href=""><h5 style="margin-left:4px">Job Opportunity</h5></a>
+			<a href="job_opportunity.php"><h5 style="margin-left:4px">Job Opportunity</h5></a>
 			<a href=""><h5 style="margin-left:26px">Terms & Conditions</h5></a>
 		</div>
 		<div class="Customer">

@@ -14,6 +14,6 @@
 		<lo><a title="Microsoft Surface" href="#microsoft"><img src="img/STC computer/surface.jpg"></a></lo>
 		<lo class="fb_book"><a target="_blank" href="https://www.facebook.com/sengtaycomputer"><img src="img/STC computer/facebook.png" width="40"></a></lo>
 		<lo class="fb_youtube"><a target="_blank" href="https://youtube.com"><img src="img/unnamed.png" width="55"></a></lo>
-		<lo class="fb_job"><a href=""><img src="img/job.png" width="100%" ></a></lo>
+		<lo class="fb_job"><a href="job_opportunity.php"><img src="img/job.png" width="100%" ></a></lo>
     </nav>
 </div>
