@@ -17,7 +17,7 @@ include "init.php";
                                             $status=0;
 
                                             $disableid=$_GET['disableid'];
-                                            $stmtUp=$con->prepare("UPDATE tbl_category SET status=? WHERE category_id=?");
+                                            $stmtUp=$con->prepare("UPDATE tbl_article SET status=? WHERE artcle_id=?");
                                             $result=$stmtUp->execute(array($status,$disableid));
                                             if ($result){
                                                 echo "<div class='alert alert-success'>You unblock successfull </div>";
@@ -26,7 +26,7 @@ include "init.php";
                                         if (isset($_GET['publicid'])){
                                             $status=1;
                                             $publicid=$_GET['publicid'];
-                                            $stmtUp1=$con->prepare("UPDATE tbl_category SET status=? WHERE category_id=?");
+                                            $stmtUp1=$con->prepare("UPDATE tbl_article SET status=? WHERE artcle_id=?");
                                             $result=$stmtUp1->execute(array($status,$publicid));
                                             if ($result){
                                                 echo "<div class='alert alert-success'>You public successfull </div>";
