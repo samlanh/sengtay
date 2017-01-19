@@ -98,7 +98,7 @@ include "init.php";
                       <div class="panel-body">
                          <div class="form-group">
                           <label class="control-label col-sm-3" >Input-Img</label>
-                          <div class="box_img" ><img  src="../img/q.png"class="img-thumbnail img_box"></div>
+                          <div class="box_img" ><img  src="../img/pp.png"class="img-thumbnail img_box"></div>
                          </div> 
                        </div>
                     </div>  
@@ -107,14 +107,7 @@ include "init.php";
           </div>
       </form>
     </div>
-	<script>
-		CKEDITOR.editorConfig = function( config ) {
-			config.language = 'es';
-			config.uiColor = '#F7B42C';
-			config.height = 300;
-			config.toolbarCanCollapse = true;
-		};
-	</script>
+
 <?php
 include "include/tpls/footer.php";
 ?>

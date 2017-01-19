@@ -32,9 +32,7 @@
     <script src="layout/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <![endif]-->
 
-
 </head>
-
 <body>
 
 

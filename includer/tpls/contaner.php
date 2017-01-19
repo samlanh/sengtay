@@ -15,7 +15,7 @@
 					
 				?>
 				<td class="col_st">
-					<span class="com_soon"></span><img src="img/01.jpg" width="250" height="200" style="padding:20px">
+					<span class="upcoming"></span><img src="img/01.jpg" width="250" height="200" style="padding:20px">
 					<h4 style="text-align:center">Dell Inspiron 7559</h4>
 					<h3 style="text-align:center; color:red"><span class="price"><del>$1,100</span>&nbsp&nbsp$1,240 </h3>
 					<h5><img src="img/STC Computer/newarrival.gif"></h5>
@@ -38,4 +38,3 @@
 		</table>
 	</div>
 </div>
-<div class="corner" style="border-color: transparent transparent transparent rgb(249, 166, 43);"> </div>
