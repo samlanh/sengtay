@@ -65,7 +65,7 @@
                 <a href="#"><i class="fa fa-pencil"></i> Article <span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="articlemanage.htl"><i class="fa fa-adn"></i> Manage Article</a>
+                        <a href="articlemanage.html"><i class="fa fa-adn"></i> Manage Article</a>
                         <a href="articleaddart.html"><i class="fa fa-plus"></i> Add New Article</a>
                     </li>
 
