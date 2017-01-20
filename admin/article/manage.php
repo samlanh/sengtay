@@ -51,12 +51,12 @@ include "init.php";
                                                         <table class="table table-striped table-hover" id="dataTables-example">
                                                             <thead>
                                                             <tr>
-                                                                <th>  <button name="deleteSelect" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete </button></th>
+                                                                <th>  <button name="deleteSelect" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> </button></th>
 
                                                                 <th>No</th>
-                                                                <th>Images</th>
+                                                                <th>IMG</th>
                                                                 <th>Category</th>
-                                                                <th>Menu </th>
+                                                                <th>Category </th>
                                                                 <th>New price</th>
                                                                 <th>Control</th>
 
@@ -90,9 +90,9 @@ include "init.php";
                                                                 echo"<td><input type='checkbox' name='del[]' value='".$row['artcle_id']."' ></td>";
                                                                 echo "<td>". $i."</td>";
                                                               ?>
-                                                                <td><img src="../img/<?php echo $row['images_pro']?>" style="max-width: 20px; max-height: 18px;" ></td>
+                                                                <td style="width:50px;"><img src="../img/<?php echo $row['images_pro']?>" style="max-width: 20px; max-height: 18px;" ></td>
                                                                 <?php
-                                                                echo "<td><a title='Click to update Article' href='article.php?do=edit".$row['artcle_id']."'>".$row['article']."</a></td>";
+                                                                echo "<td><a title='Click to update Article' href='article.php?do=edit&id=".$row['artcle_id']."'>".$row['article']."</a></td>";
                                                                 echo "<td class='tblUserTr'>".$row['category']."</td>";
                                                              echo "<td class='tblUserTr'>".$row['new_price']."$</td>";
 

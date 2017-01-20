@@ -6,17 +6,26 @@
         $count=$statement->rowCount();
         return $count;
     }
-/*function insert($txtMenu,$menuDes,$menuType,$menuKeyword)
-{
-    global $con;
-    $stmt = $con->prepare("INSERT INTO tbl_menu(Menu,Description,Access,Keyword) VALUES (:zmenu,:zDesc,:zAccess,:zKeyword)");
-    $stmt->execute(array
-        (
-            'zmenu' => $txtMenu,
-            'zDesc' => $menuDes,
-            'zAccess' => $menuType,
-            'zKeyword' => $menuKeyword
+function redirectHome($theMsg,$url=null, $seconds=0){
+    if ($url===null){
+        $url='index.php';
+        $link=' Home page ';
 
-        )
-    );
-}*/
+    }else{
+        // $url=isset($_SEVER['HTTP_REFERER'])&&$_SERVER['HTTP_REFERER']!=''?$_SERVER['HTTP_REFERER'] :'index.php';
+        if (isset($_SEVER['HTTP_REFERER'])&& $_SERVER['HTTP_REFERER']!==''){
+            $url=$_SERVER['HTTP_REFERER'];
+            $link=' Previous page ';
+        }else{
+            $url='index.php';
+            $link=' Home page ';
+        }
+
+    }
+    echo "$theMsg";
+    echo "<div class='alert alert-info'>You will redirect to <strong>$link</strong> after <strong>$seconds </strong>second</div>";
+
+    header("refresh:$seconds;url=$url");
+    exit();
+
+}

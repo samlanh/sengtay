@@ -78,20 +78,18 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
              <div class="row">
 
 
-                                <div class="col col-sm-8">
+                                <div class="col col-sm-8"><br>
                                         <div class="col col-sm-2">
                                             <label class="pull-right">Category</label>
                                         </div>
                                         <div class="col col-sm-10">
                                               <input class="form form-control" value="<?php echo $row['category'];?>"  type="text" name="txtCat" placeholder="Menu name" >
                                         </div>
-                                    <div class="col col-sm-2"><br>
-                                        <label class="pull-right">Description</label>
+
+                                    <div class="col col-sm-12"><br>
+                                        <textarea class="ckeditor" id="myEditor" name="description" rows="20"style="width: 100%;  "  ><?php echo  $row['description'];?></textarea>
                                     </div>
-                                    <div class="col col-sm-10"><br>
-                                        <textarea class="form form-control" name="description" rows="20"style="width: 100%;  "  ><?php echo  $row['description'];?></textarea>
-                                    </div>
-                                    <textarea class="ckeditor" id="myEditor" name="myEditor" cols="35" rows="20"></textarea>
+
 
 
                                 </div>
@@ -106,7 +104,7 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
 
                                                 foreach ($rows as $rowSelCat){
                                                     ?>
-                                                    <option class="form form-control" value="<?php echo $rowSelCat['menu_id']?>"<?php if ($rowSelCat['menu_id']=$row['menu_id']) echo "selected";?>><?php echo$rowSelCat['menu']?></option>
+                                                    <option class="form form-control" value="<?php echo $rowSelCat['menu_id']?>"<?php if ($rowSelCat['menu_id']==$row['menu_id']) echo "selected";?>><?php echo $rowSelCat['menu']?></option>
                                                     <?php
                                                 }
 

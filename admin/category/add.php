@@ -68,10 +68,8 @@ if (isset($_POST['btnAddCat'])){
                                         <div class="col col-sm-10">
                                               <input class="form form-control" type="text" name="txtCat" placeholder="Input new Category name">
                                         </div>
-                                    <div class="col col-sm-2"><br>
-                                        <label class="pull-right">Description</label>
-                                    </div>
-                                    <div class="col col-sm-10"><br>
+
+                                    <div class="col col-sm-12"><br>
 
                                         <textarea  name="catDes" class="ckeditor" id="myEditor" name="myEditor" cols="35" rows="20"></textarea>
                                     </div>
