@@ -5,7 +5,7 @@ body
 }
 .wrapper
 {
-	margin:0 auto;
+	margin:10px auto;
 	width:1024px;
 	background: #fff;
 	height: auto;
@@ -44,13 +44,7 @@ body
 	height: 150px;
 }
 /*----------search--------------*/
-.selected_st
-{	
-	background-image:url(http://localhost:81/STC computer/img/arrowdwon.png);
-	-moz-appearance: 1;
-    -webkit-appearance: 1;
-    appearance: 1;
-}
+
 .input_sc
 {
 	background: red;

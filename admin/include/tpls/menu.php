@@ -72,21 +72,21 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-pencil"></i> Product Type <span class="fa arrow"></span> </a>
+                <a href="#"><i class="fa fa-pencil"></i> Side<span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#"><i class="fa fa-adn"></i> Manage Product Type</a>
-                        <a href="#"><i class="fa fa-plus"></i> Add New Product Type</a>
+                        <a href="slidemanage.html"><i class="fa fa-adn"></i> Manage Slide</a>
+                        <a href="slideaddslide.html"><i class="fa fa-plus"></i> Add new slide</a>
                     </li>
 
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-pencil"></i> Location <span class="fa arrow"></span> </a>
+                <a href="#"><i class="fa fa-pencil"></i> Banner <span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#"><i class="fa fa-adn"></i> Manage Location</a>
-                        <a href="#"><i class="fa fa-plus"></i> Add New Location</a>
+                        <a href="#"><i class="fa fa-adn"></i> Manage banner</a>
+                        <a href="#"><i class="fa fa-plus"></i> Banner</a>
                     </li>
 
                 </ul>

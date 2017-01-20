@@ -36,3 +36,10 @@
     width: 150px;
     height: 100px;
 }
+.slide_backend{
+    width: 1024px;
+    height: 340px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+}

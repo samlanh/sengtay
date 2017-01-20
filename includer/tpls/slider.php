@@ -7,16 +7,16 @@
     </div>
     <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 200px; overflow: hidden;">
         <div data-p="112.50">
-            <img data-u="image" src="img/baner.jpg" />
+            <img data-u="image" src="img/slide/baner.jpg" />
         </div>
-        <div data-p="112.50" style="display:none;">
-            <img data-u="image" src="img/baner.jpg" />
+        <div data-p="112.50">
+            <img data-u="image" src="img/slide/baner1.jpg" />
         </div>
-        <div data-p="112.50" style="display:none;">
-            <img data-u="image" src="img/baner.jpg" />
+        <div data-p="112.50">
+            <img data-u="image" src="img/slide/baner.jpg" />
         </div>
-        <div data-p="112.50" style="display:none;">
-            <img data-u="image" src="img/baner.jpg" />
+        <div data-p="112.50">
+            <img data-u="image" src="img/slide/baner1.jpg" />
         </div>
     </div>
         <span data-u="arrowleft" class="jssora08l" style="top:8px;left:8px;width:50px;height:50px;" data-autocenter="1"></span>
