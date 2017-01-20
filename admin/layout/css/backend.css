@@ -42,4 +42,11 @@
 
     border: 1px solid #eeeeee;
     border-radius: 5px;
+    position: relative;
+}
+.info{
+    position: absolute;
+    left: 400px;
+    top: 100px;
+
 }
