@@ -90,20 +90,24 @@ include "init.php";
                                                                 echo"<td><input type='checkbox' name='del[]' value='".$row['artcle_id']."' ></td>";
                                                                 echo "<td>". $i."</td>";
                                                               ?>
-                                                                <td style="width:50px;"><img src="../img/<?php echo $row['images_pro']?>" style="max-width: 20px; max-height: 18px;" ></td>
+                                                                <td style="width:50px;"><img src="../img/<?php echo $row['images_pro']?>" style="max-width: 60px; max-height: 50px;" ></td>
                                                                 <?php
                                                                 echo "<td><a title='Click to update Article' href='article.php?do=edit&id=".$row['artcle_id']."'>".$row['article']."</a></td>";
                                                                 echo "<td class='tblUserTr'>".$row['category']."</td>";
                                                              echo "<td class='tblUserTr'>".$row['new_price']."$</td>";
-
-                                                                echo "<td class='center-block'>";
-                                                                   if ($row['status']==1){
-                                                                   echo "<a title='Click to disable this article' href='article.php?do=manage&disableid=".$row['artcle_id']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";
+                                                                
+                                                                echo "<td>";
+                                                                if ($row['status']==1){
+                                                                    echo "<a title='Click to disable this article' href='article.php?do=manage&disableid=".$row['artcle_id']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";
                                                                 }
                                                                 if ($row['status']==0){
                                                                     echo "<a  title='Click to public article' href='article.php?do=manage&publicid=".$row['artcle_id']."' class='btn btn-warning btn-xs'> <i class='fa fa-lock' ></i> Disable</a>";
                                                                 }
-                                                                echo" </td>";
+                                                                echo "</td>";
+
+
+
+
                                                                 echo "</tr>";
                                                             }
                                                             ?>

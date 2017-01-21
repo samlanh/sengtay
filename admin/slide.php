@@ -10,7 +10,7 @@ if (isset($_SESSION['username'] )&& $_SESSION['status']){
     }else if ($do=='addslide'){
         include "slide/add.php";
     }else if ($do=='edit'){
-        include "article/edit.php";
+        include "slide/edit.php";
     }
 }else{
     header('Location:index.html');
