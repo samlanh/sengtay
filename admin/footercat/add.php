@@ -48,7 +48,7 @@ if (isset($_POST['btnAddCat'])){
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col col-sm-6">
-                                    <h3 style="color: #428bca;">Create category</h3>
+                                    <h3 style="color: #428bca;">Create footer category</h3>
                                 </div>
                                 <div class="col col-sm-6">
 
@@ -71,30 +71,22 @@ if (isset($_POST['btnAddCat'])){
 
                                     <div class="col col-sm-12"><br>
 
-                                        <textarea  name="catDes" class="ckeditor" id="myEditor" name="myEditor" cols="35" rows="20"></textarea>
+                                        <textarea  name="catDes" class="ckeditor" placeholder="note for footer category" id="myEditor" name="myEditor" cols="35" rows="20"></textarea>
                                     </div>
 
                                 </div>
                                 <div class="col col-sm-4"">
-                                <label>Menu</label>
-                                <select class="form form-control" name="menu" >
+                                <label>Order</label>
+                                <select class="form form-control" name="ststus" >
+                                    <option class="form form-control" value="1">First</option>
+                                    <option class="form form-control" value="2">Second</option>
+                                    <option class="form form-control" value="3">Third</option>
 
-                                    <option class="form form-control" value="0">Select Menu</option>
-                                    <?php
-                                    $trust=1;
-                                    $status=1;
-                                    $stmt=$con->prepare("SELECT menu_id,menu FROM tbl_menu WHERE status='$status' AND trust='$trust'");
-                                    $stmt->execute();
-                                    $rows=$stmt->fetchAll();
-                                    foreach ($rows as $row){
-                                       ?>
-                                        <option class="form form-control" value="<?php echo $row['menu_id'];?>"><?php echo $row['menu'];?></option>
-                                       <?php
-                                    }
+                                    
 
 
-                                    ?>
                                 </select><br>
+                                <label>Keyword</label>
                                     <label>Possibility</label>
                                     <select class="form form-control" name="ststus" >
                                         <option class="form form-control" value="1">Public</option>

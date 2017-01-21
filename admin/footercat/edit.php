@@ -1,7 +1,7 @@
 <?php
 include "init.php";
 
-$catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
+$catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
 
 
 
@@ -37,7 +37,7 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
             }
             if (empty($ErrorSms)){
                 $stmt=$con->prepare("UPDATE tbl_category SET category=?,menu_id=?,description=?,keyword=?,status=? WHERE category_id=?");
-                $resultUp=$stmt->execute(array($txtCat,$menu,$description,$keyword,$status,$catID));
+                $resultUp=$stmt->execute(array($txtCat,$menu,$description,$keyword,$status,$catfootID));
                 if ($resultUp){
                     echo "<div class='alert alert-success' style='margin: 10px -15px 10px -15px'>Update successfull ! <strong> to $txtCat</strong> </div>";
                 }else{
@@ -68,8 +68,8 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                         </div>
                         <div class="panel panel-body">
                 <?php
-                   $stmtCat=$con->prepare("SELECT * FROM tbl_category WHERE category_id=? limit 1");
-                    $exec=$stmtCat->execute(array($catID));
+                   $stmtCat=$con->prepare("SELECT * FROM tbl_footer_cat WHERE footer_cat_id=? limit 1");
+                    $exec=$stmtCat->execute(array($catfootID));
                     $row=$stmtCat->fetch();
                     $rowsCountMn=$stmtCat->rowCount();
 
@@ -83,7 +83,7 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                                             <label class="pull-right">Category</label>
                                         </div>
                                         <div class="col col-sm-10">
-                                              <input class="form form-control" value="<?php echo $row['category'];?>"  type="text" name="txtCat" placeholder="Menu name" >
+                                              <input class="form form-control" value="<?php echo $row['footer_title'];?>"  type="text" name="txtCat" placeholder="Menu name" >
                                         </div>
 
                                     <div class="col col-sm-12"><br>
