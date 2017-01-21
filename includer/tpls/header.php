@@ -15,7 +15,7 @@
 			<div class="header">
 				<div class="st_logo">
 					<div id="logo"><a href="index.php"><img src="img/stc-logo.png" width="100%"></a></div>
-					<div id="e_type"><img src="img/do.gif" width="100%" height="80px"></div>
+					<div id="e_type"><img src="img/SENGTAY.gif" width="100%" height="80px"></div>
 				</div>
 				<div class="st_e_type">
 					<div class="st_search">
@@ -46,6 +46,6 @@
 						   </div>
 			            </form>
 			        </div>
-			        	<img src="img/baner.jpg" width="100%" height="100px" style="padding:10px; margin-top:12px;">
+			        	<img src="img/gaming.gif" width="100%" height="100px" style="padding:10px; margin-top:12px;">
 
 				</div>
