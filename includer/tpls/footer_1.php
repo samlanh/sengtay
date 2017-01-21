@@ -7,16 +7,18 @@
 			<a href="job_opportunity.php"><h5 style="margin-left:4px">Job Opportunity</h5></a>
 			<a href=""><h5 style="margin-left:26px">Terms & Conditions</h5></a>
 		</div>
-		<div class="Customer">
+		<div class="Information">
 			<h2><b/>Customer Service</h2>
 			<a href="contact.php"><h5 style="margin-left:-60px">Contact Us</h5></a>
 			<a href=""><h5 style="margin-left:-73px">Site Map</h5></a>
 		</div>
-		<div class="Extras">
+		<div class="Information">
 			<h2><b/>Extras</h2>
 			<a href=""><h5>Brands</h5></a>
 			<a href="Specials_offers.php"><h5>Specials</h5></a>
 		</div>
+		
+
 	</div>
 	<div class="copy_write">
 		<hr style="width:400px; background:#ddd;">

@@ -13,6 +13,7 @@ RewriteRule ^admin/menu([a-zA-z0-9]+) admin/menu.php?do=$1
 RewriteRule ^admin/category([a-zA-z0-9]+) admin/category.php?do=$1
 RewriteRule ^admin/article([a-zA-z0-9]+) admin/article.php?do=$1
 RewriteRule ^admin/slide([a-zA-z0-9]+) admin/slide.php?do=$1
+RewriteRule ^admin/footercat([a-zA-z0-9]+) admin/footercat.php?do=$1
 
 RewriteRule ^admin/user([a-zA-z0-9]+)/([a-zA-z0-9]+) admin/user.php?do=$1&id=$2
 

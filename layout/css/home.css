@@ -143,7 +143,7 @@ a
     height: 30px;
     margin-top: -4px;
     margin-left: 2.1px;
-    z-index:-1px;
+    z-index:-1;
 
 }
 .head_l
@@ -157,7 +157,7 @@ a
     height: 29px;
     margin-top: -4px;
     margin-left: 1.8px;
-    z-index:-1px;
+    z-index:-1;
 
 }
 .category
@@ -236,7 +236,7 @@ td
 .footer
 {
 	background:#303030;
-	height: 280;
+
 	color: #ddd;
 	float: left;
 	width: 100%;
@@ -262,7 +262,7 @@ td
 }
 .con_fo{width: 100%;}
 .copy_write{width: 100%;float: left; text-align: center;}
-.marquee_h{text-align: center;background: #ecf0f1 !important;width: 1024;float: left; padding: 9px 16px;height: 50px;bottom: 0;position: fixed;border:solid #999 1px ; border-radius: 4px;}
+.marquee_h{text-align: center;background: #ecf0f1 !important;width: 1024px;float: left; padding: 9px 16px;height: 50px;bottom: 0;position: fixed;border:solid #999 1px ; border-radius: 4px;}
 .marquee_h h5{font-size: 16px; color: red;}
 
 

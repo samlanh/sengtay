@@ -82,6 +82,20 @@
                 </ul>
             </li>
             <li>
+                <a href="#"><i class="fa fa-pencil"></i> Footer <span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="footercatmanage.html"><i class="fa fa-adn"></i> Manage category footer</a>
+                        <a href="#"><i class="fa fa-plus"></i> Add category footer</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-adn"></i> Manage link footer</a>
+                        <a href="#"><i class="fa fa-plus"></i> Add link footer</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-pencil"></i> Banner <span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
                     <li>
