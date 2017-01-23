@@ -65,7 +65,7 @@ include"init.php";
 <div class="promotion">
  <div class="specials">
   <nav class="category">
-   <li class="st_ca"><h6>Specials &nbsp<span class="head_spr"></span></h6></li>
+   <li class="st_ca"><h6>Coming soon &nbsp<span class="head_spr"></span></h6></li>
    <li class="hr_head"><li>
   </nav>
 
@@ -74,7 +74,7 @@ include"init.php";
 
 	 	include "admin/connection.php";
 
-	 	$stmt=$con->prepare("SELECT * FROM tbl_article WHERE 	promotion='1' and trust='1'");
+	 	$stmt=$con->prepare("SELECT * FROM tbl_article WHERE arrival_comming='0' and trust='1'");
 	 	$stmt->execute();
 	 	$spacial=$stmt->fetchAll();
 
@@ -83,7 +83,6 @@ include"init.php";
 
 		 <div class="tb_row">
 			 <img src="img/<?php echo $rowSpacial['images_pro'];?>" style=" position: absolute;left: 25px;" width="200px"  height="150px">
-			 <div class="priceShow"><span><del/>$ <?php echo $rowSpacial['old_price'];?></span> - $<?php echo $rowSpacial['new_price'];?></div>
 			 <div class="tilePro">
 				 <h3><?php echo $rowSpacial['article'];?></h3>
 			 </div>

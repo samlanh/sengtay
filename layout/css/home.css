@@ -144,10 +144,10 @@ a
     -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
     transform: rotate(-45deg);
     width: 30px;
-    height: 30px;
-    margin-top: -4px;
-    margin-left: 2.1px;
-    left: 257px;
+    height: 28px;
+    margin-top: -3px;
+    margin-left: 1px;
+
 
 }
 .head_l
