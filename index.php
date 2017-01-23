@@ -82,25 +82,14 @@ include"init.php";
 		 ?>
 
 		 <div class="tb_row">
-			 <img src="img/<?php echo $rowSpacial['images_pro'];?>" style=" position: absolute;left: 25px;" width="200px"  height="150px">
-			 <div class="tilePro">
+
+			 <img  src="img/<?php echo $rowSpacial['images_pro'];?>" style=" position: absolute;left: 25px;" width="200px"  height="150px">
+			 <span ><img src="img/Coming_Soon.png"style="position: absolute;top: 0px; width: 170px;"></span>
+			  <div class="tilePro">
 				 <h3><?php echo $rowSpacial['article'];?></h3>
 			 </div>
 
-			 <?php
-			 $arrival=$rowSpacial['arrival_comming'];
-			 if ($arrival==1){
-				echo '<div class="newArrival">
-				 <img src="img/STCComputer/newarrival.gif">
-			 </div>';
-			 }else if ($arrival==0){
-
-				 echo '<div class="newArrival" style="color: red;">
-				 New arrival
-			 </div>';
-			 }
-
-			 ?>
+			
 			 <div class="descripshow">
 				 <h5>
 					 <?php echo $rowSpacial['descrip'];?>
