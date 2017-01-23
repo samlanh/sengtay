@@ -6,7 +6,7 @@ include"init.php";
 <div class="contaner">
  <div class="specials">
   <nav class="category">
-   <li class="st_ca"><h6>Specials &nbsp</h6></li>
+   <li class="st_ca"><h6>Specials &nbsp<span class="head_spr"></span></h6></li>
    <li class="hr_head"><li>
   </nav>
 
@@ -60,10 +60,12 @@ include"init.php";
 
  </div>
 </div>
+</div>
 
- <div class="specials_2">
+<div class="promotion">
+ <div class="specials">
   <nav class="category">
-   <li class="st_ca"><h6>Specials &nbsp</h6></li>
+   <li class="st_ca"><h6>Specials &nbsp<span class="head_spr"></span></h6></li>
    <li class="hr_head"><li>
   </nav>
 
