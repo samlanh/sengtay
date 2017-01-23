@@ -15,7 +15,7 @@ include"init.php";
 
 	 	include "admin/connection.php";
 
-	 	$stmt=$con->prepare("SELECT * FROM tbl_article WHERE 	promotion='1' and trust='1'");
+	 	$stmt=$con->prepare("SELECT * FROM tbl_article WHERE 	promotion='1' and trust='1' ORDER BY article ASC ");
 	 	$stmt->execute();
 	 	$spacial=$stmt->fetchAll();
 
@@ -74,7 +74,7 @@ include"init.php";
 
 	 	include "admin/connection.php";
 
-	 	$stmt=$con->prepare("SELECT * FROM tbl_article WHERE arrival_comming='0' and trust='1'");
+	 	$stmt=$con->prepare("SELECT * FROM tbl_article WHERE arrival_comming='0' and trust='1' ORDER BY article ASC ");
 	 	$stmt->execute();
 	 	$spacial=$stmt->fetchAll();
 
@@ -89,7 +89,7 @@ include"init.php";
 				 <h3><?php echo $rowSpacial['article'];?></h3>
 			 </div>
 
-			
+
 			 <div class="descripshow">
 				 <h5>
 					 <?php echo $rowSpacial['descrip'];?>
@@ -131,7 +131,7 @@ foreach ($spacial as $rowCat) {
 
 
 
-				$stmt=$con->prepare("SELECT * FROM tbl_article WHERE category_id='$cat_id' and trust='1'");
+				$stmt=$con->prepare("SELECT * FROM tbl_article WHERE category_id='$cat_id' and trust='1' ORDER BY article ASC ");
 				$stmt->execute();
 				$spacial=$stmt->fetchAll();
 

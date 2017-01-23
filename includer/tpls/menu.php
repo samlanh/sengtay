@@ -14,7 +14,7 @@
 
       $stmt=$con->prepare("
       
-                SELECT * FROM tbl_menu 
+                SELECT * FROM tbl_menu WHERE trust='1'
                 
       ");
       $stmt->execute();
@@ -26,7 +26,7 @@
       foreach ($rows as $row){
 
           ?>
-          <li><a  href="Desktops"><?php echo $row['menu']; ?></a></li>
+          <li><a  href="<?php echo $row['menu_id']; ?>"><?php echo $row['menu']; ?></a></li>
       <?php
 
       }
