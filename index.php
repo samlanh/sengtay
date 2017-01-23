@@ -11,55 +11,53 @@ include"init.php";
   </nav>
 
  <div id="specials">
-    <div class="tb_row">
-    	<img src="img/STC Computer/100-200x200.jpg" width="220px" height="200px">
-    	<h3>ssssss</h3>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    </div>
-    <div class="tb_row">
-    	<img src="img/STC Computer/100-200x200.jpg" width="220px" height="200px">
-    	<h3>ssssss</h3>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    </div>
-    <div class="tb_row">
-    	<img src="img/STC Computer/100-200x200.jpg" width="220px" height="200px">
-    	<h3>ssssss</h3>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	
-    </div>
-     <div class="tb_row">
-    	<img src="img/STC Computer/100-200x200.jpg" width="220px" height="200px">
-    	<h3>ssssss</h3>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    </div>
-    <div class="tb_row">
-    	<img src="img/STC Computer/100-200x200.jpg" width="220px" height="200px">
-    	<h3>ssssss</h3>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    	<h5>ddddd</h5>
-    </div>
+	 <?php
+
+	 	include "admin/connection.php";
+
+	 	$stmt=$con->prepare("SELECT * FROM tbl_article WHERE 	promotion='1' and trust='1'");
+	 	$stmt->execute();
+	 	$spacial=$stmt->fetchAll();
+
+	 foreach ($spacial as $rowSpacial) {
+		 ?>
+
+		 <div class="tb_row">
+			 <img src="img/<?php echo $rowSpacial['images_pro'];?>" style=" position: absolute;left: 25px;" width="200px"  height="150px">
+			 <div class="priceShow"><span><del/>$ <?php echo $rowSpacial['old_price'];?></span> - $<?php echo $rowSpacial['new_price'];?></div>
+			 <div class="tilePro">
+				 <h3><?php echo $rowSpacial['article'];?></h3>
+			 </div>
+
+			 <?php
+			 $arrival=$rowSpacial['arrival_comming'];
+			 if ($arrival==1){
+				echo '<div class="newArrival">
+				 <img src="img/STCComputer/newarrival.gif">
+			 </div>';
+			 }else if ($arrival==0){
+
+				 echo '<div class="newArrival" style="color: red;">
+				 New arrival
+			 </div>';
+			 }
+
+			 ?>
+			 <div class="descripshow">
+				 <h5>
+					 <?php echo $rowSpacial['descrip'];?>
+				 </h5>
+			 </div>
+
+
+		 </div>
+
+	 <?php
+	 	}
+	 ?>
+
+
+
  </div>
 </div>
 </div>
