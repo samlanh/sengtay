@@ -107,6 +107,14 @@ input
     left: 0px;
     margin-left: -2px;	
 }
+.fb_cunter
+{
+	position: fixed;
+    top: 460px;
+    z-index: 99;
+    left: 0px;
+    margin-left: -2px;	
+}
 nav
 {
 	list-style-type: none !important;
