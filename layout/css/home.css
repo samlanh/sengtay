@@ -197,14 +197,18 @@ a
 }
 .l_head
 {
-	background: red;
+
 	height: 2px;
 	width: 100%;
 	margin-top: -10px;
 }
 #specials
 {
+//	border :1px solid red;
 	width: 100%;
+	height: auto;
+	float: left;
+
 }
 
 .col_st
@@ -284,6 +288,35 @@ td
 .j_oppurt h6{line-height: 10px !important;margin-left: 10px;font-family: "Open Sans",sans-serif; color: #555;}
 
 
-.tb_row{width: 25%; height: 540px; float: left; border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;}
+.tb_row {
+	background-color: #fff; position: relative; width: 25%; height: 540px; float: left; border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;}
 .tb_row img{text-align: center;}
 .tb_row h3,h5{margin-left: 20px;}
+.tb_row h5{font-size: 12px;margin-left: 0px; line-height: 20px;}
+
+.priceShow{
+	color: red;
+	font-size: 20px;
+	position: absolute;
+	top: 145px;
+	right: 40px;
+}
+.tilePro h3{
+	color: #606060;
+	font-size: 15px;
+	font-weight: 700;
+	position: absolute;
+	top: 160px;
+
+}
+.descripshow h5{
+	position: absolute;
+	top: 220px;
+
+}
+.newArrival{
+	position: absolute;
+	top: 210px;
+	left: 10px;
+
+}
