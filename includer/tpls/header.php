@@ -15,7 +15,7 @@
 			<div class="header">
 				<div class="st_logo">
 					<div id="logo"><a href="index.php"><img src="img/stc-logo.png" width="100%"></a></div>
-					<div id="e_type"><img src="img/SENGTAY.gif" width="100%" height="80px"></div>
+					<div id="e_type"><img src="img/banner/lab.gif" width="100%" height="80px"></div>
 				</div>
 				<div class="st_e_type">
 					<div class="st_search">

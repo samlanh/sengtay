@@ -155,6 +155,7 @@ a
     height: 28px;
     margin-top: -3px;
     margin-left: 1px;
+	z-index: 10;
 
 
 }
@@ -206,6 +207,7 @@ a
 	height: 2px;
 	width: 1024px;
 	margin-top: -10px;
+	z-index: 11;
 }
 .l_head
 {
@@ -214,9 +216,9 @@ a
 	width: 100%;
 	margin-top: -10px;
 }
-#specials
+#specials_u
 {
-//	border :1px solid red;
+
 	width: 100%;
 	height: auto;
 	float: left;
@@ -278,7 +280,7 @@ td
 }
 .con_fo{width: 100%;}
 .copy_write{width: 100%;float: left; text-align: center;}
-.marquee_h{text-align: center;background: #ecf0f1 !important;width: 1024px;float: left; padding: 9px 16px;height: 50px;bottom: 0;position: fixed;border:solid #999 1px ; border-radius: 4px;}
+.marquee_h{z-index: 12 ; text-align: center;background: #ecf0f1 !important;width: 1024px;float: left; padding: 9px 16px;height: 50px;bottom: 0;position: fixed;border:solid #999 1px ; border-radius: 4px;}
 .marquee_h h5{font-size: 16px; color: red;}
 
 
@@ -301,7 +303,7 @@ td
 
 
 .tb_row {
-	background-color: #fff; position: relative; width: 25%; height: 540px; float: left; border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;}
+	background-color: #fff; position: relative; width: 25%; height: 520px; float: left; border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;}
 .tb_row img{text-align: center;}
 .tb_row h3,h5{margin-left: 20px;}
 .tb_row h5{font-size: 12px;margin-left: 0px; line-height: 20px;}

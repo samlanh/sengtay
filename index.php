@@ -10,7 +10,7 @@ include"init.php";
    <li class="hr_head"><li>
   </nav>
 
- <div id="specials">
+ <div id="specials_u">
 	 <?php
 
 	 	include "admin/connection.php";
@@ -65,11 +65,11 @@ include"init.php";
 <div class="promotion">
  <div class="specials">
   <nav class="category">
-   <li class="st_ca"><h6>Coming soon &nbsp<span class="head_spr"></span></h6></li>
+   <li class="st_ca" id="dell_gaming"><h6>Coming soon &nbsp<span class="head_spr"></span></h6></li>
    <li class="hr_head"><li>
   </nav>
 
- <div id="specials">
+ <div id="specials_u">
 	 <?php
 
 	 	include "admin/connection.php";
@@ -121,65 +121,79 @@ include"init.php";
 </div>
 
 
+<?php
+
+$stmt=$con->prepare("SELECT * FROM tbl_category WHERE tbl_category.trust='1'");
+$stmt->execute();
+$spacial=$stmt->fetchAll();
+
+foreach ($spacial as $rowCat) {
+	$cat_id=$rowCat['category_id'];
+	?>
+	<div class="promotion">
+		<div class="specials">
+			<nav class="category">
+				<li class="st_ca" id="<?php echo $rowCat['id_category']?>"><h6><?php echo $rowCat['category']; ?> &nbsp<span class="head_spr"></span></h6></li>
+				<li class="hr_head"><li>
+			</nav>
+
+			<div id="specials_u">
+				<?php
 
 
-<div class="promotion">
-	<div class="specials">
-		<nav class="category">
-			<li class="st_ca"><h6>Coming soon &nbsp<span class="head_spr"></span></h6></li>
-			<li class="hr_head"><li>
-		</nav>
 
-		<div id="specials">
-			<?php
+				$stmt=$con->prepare("SELECT * FROM tbl_article WHERE category_id='$cat_id' and trust='1'");
+				$stmt->execute();
+				$spacial=$stmt->fetchAll();
 
-			include "admin/connection.php";
+				foreach ($spacial as $rowSpacial) {
+					?>
 
-			$stmt=$con->prepare("SELECT * FROM tbl_article WHERE arrival_comming='0' and trust='1'");
-			$stmt->execute();
-			$spacial=$stmt->fetchAll();
+					<div class="tb_row">
+						<img src="img/<?php echo $rowSpacial['images_pro'];?>" style=" position: absolute;left: 25px;" width="200px"  height="150px">
+						<div class="priceShow"> $<?php echo $rowSpacial['new_price'];?></div>
 
-			foreach ($spacial as $rowSpacial) {
-				?>
+						<div class="tilePro">
+							<h3><?php echo $rowSpacial['article'];?></h3>
+						</div>
 
-				<div class="tb_row">
-					<img src="img/<?php echo $rowSpacial['images_pro'];?>" style=" position: absolute;left: 25px;" width="200px"  height="150px">
-					<div class="tilePro">
-						<h3><?php echo $rowSpacial['article'];?></h3>
+						<?php
+						$arrival=$rowSpacial['arrival_comming'];
+						if ($arrival==1){
+							echo '<div class="newArrival">
+									 <img src="img/STCComputer/newarrival.gif">
+								 </div>';
+						}else if ($arrival==0){
+
+							echo '<div class="newArrival" style="color: red;">
+									 New arrival
+								 </div>';
+						}
+
+						?>
+						<div class="descripshow">
+							<h5>
+								<?php echo $rowSpacial['descrip'];?>
+							</h5>
+						</div>
+
+
 					</div>
 
 					<?php
-					$arrival=$rowSpacial['arrival_comming'];
-					if ($arrival==1){
-						echo '<div class="newArrival">
-				 <img src="img/STCComputer/newarrival.gif">
-			 </div>';
-					}else if ($arrival==0){
-
-						echo '<div class="newArrival" style="color: red;">
-				 New arrival
-			 </div>';
-					}
-
-					?>
-					<div class="descripshow">
-						<h5>
-							<?php echo $rowSpacial['descrip'];?>
-						</h5>
-					</div>
-
-
-				</div>
-
-				<?php
-			}
-			?>
-
-
-
+				}
+				?>
+			</div>
 		</div>
 	</div>
-</div>
+<?php
+}
+?>
+
+
+
+
+
 
 
 <?php
