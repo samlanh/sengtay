@@ -23,6 +23,9 @@ if (isset($_POST['btnAddCat'])){
     if (empty($keyword)){
         $formError[]="<div class='alert alert-danger'>Plase input your <strong> keyword</strong> </div>";
     }
+    if ($menu==0){
+        $formError[]="<div class='alert alert-danger'>Plase select <strong> menu</strong> </div>";
+    }
     foreach ($formError as $error){
         echo $error;
     }
@@ -32,7 +35,7 @@ if (isset($_POST['btnAddCat'])){
         // $statement=$con->prepare("SELECT $select FROM $from WHERE $select=?");
 
         if ($checkcat){
-            echo "<div class='alert alert-danger' style='margin: 10px -15px 10px -15px'>Menu have  <strong> $txtCat already</strong> </div>";
+            echo "<div class='alert alert-danger' style='margin: 10px -15px 10px -15px'>Category have  <strong> $txtCat already</strong> </div>";
         }else{
             insertcat($txtCat,$menu,$catDes,$keyword,$ststus);
         }

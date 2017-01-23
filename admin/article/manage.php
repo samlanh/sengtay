@@ -42,7 +42,7 @@ include "init.php";
 
 
                                                         <div class="pull-right">
-                                                            <a href="categoryaddcat" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create Category </i></a>
+                                                            <a href="articleaddart.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create article </i></a>
                                                         </div>
                                                     </div>
                                                     <!-- /.panel-heading -->
