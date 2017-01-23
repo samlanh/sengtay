@@ -282,3 +282,8 @@ td
 #bd_f{  color: #fff;}
 .j_oppurt h1{padding: 10px 10px;}
 .j_oppurt h6{line-height: 10px !important;margin-left: 10px;font-family: "Open Sans",sans-serif; color: #555;}
+
+
+.tb_row{width: 25%; height: 540px; float: left; border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;}
+.tb_row img{text-align: center;}
+.tb_row h3,h5{margin-left: 20px;}
