@@ -13,16 +13,31 @@ include"init.php";
  </div>
  <div id="specials">
   <table width="100%" border="1">
-   <?php for ($i=0; $i <4; $i++) {
-    ?>
-    <tr>
-     <?php for ($j=0; $j <4; $j++) {
 
-      ?>
+
+   <?php
+   include "admin/connection.php";
+   $stmt=$con->prepare("SELECT * FROM tbl_article");
+   $stmt->execute();
+   $rowSpacial= $stmt->fetchAll();
+   $rowcount=$stmt->rowCount();
+   $test= $rowcount/4;
+  echo $test=ceil($test);
+
+   for ($t=0;$t<$test;$t++){
+
+   echo "<tr>";
+   foreach ($rowSpacial as $rowSpac){
+
+
+
+    ?>
+
+
       <td class="col_st">
-       <!--<span class="upcoming"></span>--><img src="img/spacial.jpg" width="250" height="200" style="padding:20px">
-       <h4 style="text-align:center">Dell Inspiron 7559</h4>
-       <h3 style="text-align:center; color:red"><span class="price"><del>$1,100</span>&nbsp&nbsp$1,240 </h3>
+       <!-- <span class="upcoming"></span>--><img src="img/<?php echo $rowSpac['images_pro']?>" width="250" height="200" style="padding:20px">
+       <h4 style="text-align:center"><?php echo $rowSpac['article']?></h4>
+       <h3 style="text-align:center; color:red"><?php echo $rowSpac['new_price']?>$</h3>
        <h5><img src="img/STC Computer/newarrival.gif"></h5>
        <h5>- CPU: Corei7-6700HQ 2.6Ghz Max 3.5GHz</h5>
        <h5>- RAM: 8GB DDR3L</h5>
@@ -37,9 +52,19 @@ include"init.php";
        <h5>- Free bag, Mouse , headphone Intopic 520</h5>
       </td>
 
-     <?php }?>
-    </tr>
-   <?php }?>
+
+
+
+
+
+    <?php
+
+   }
+   echo "</tr>";
+   }
+   ?>
+
+
   </table>
  </div>
 </div>

@@ -15,8 +15,9 @@ include "init.php";
                                         if (isset($_GET['disableid'])){
 
                                             $status=0;
+                                           $trust=1;
                                             $disableid=$_GET['disableid'];
-                                            $stmtUp=$con->prepare("UPDATE tbl_slide SET status=? WHERE slide_id=?");
+                                            $stmtUp=$con->prepare("UPDATE tbl_runtext SET status=? WHERE runtext_id=?");
                                             $result=$stmtUp->execute(array($status,$disableid));
                                             if ($result){
                                                 echo "<div class='alert alert-success'>You unblock successfull </div>";
@@ -25,7 +26,7 @@ include "init.php";
                                         if (isset($_GET['publicid'])){
                                             $status=1;
                                             $publicid=$_GET['publicid'];
-                                            $stmtUp1=$con->prepare("UPDATE tbl_slide SET status=? WHERE slide_id=?");
+                                            $stmtUp1=$con->prepare("UPDATE tbl_runtext SET status=? WHERE runtext_id=?");
                                             $result=$stmtUp1->execute(array($status,$publicid));
                                             if ($result){
                                                 echo "<div class='alert alert-success'>You public successfull </div>";
@@ -37,11 +38,11 @@ include "init.php";
 
                                                     <div class="panel panel-default">
                                                     <div class="panel-heading">
-                                                       <h3 style="color: #428bca;">Manage slide</h3>
+                                                       <h3 style="color: #428bca;">Manage category footer</h3>
 
 
                                                         <div class="pull-right">
-                                                            <a href="articleaddart.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create slide </i></a>
+                                                            <a href="textinfoadd.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create text information </i></a>
                                                         </div>
                                                     </div>
                                                     <!-- /.panel-heading -->
@@ -50,11 +51,9 @@ include "init.php";
                                                         <table class="table table-striped table-hover" id="dataTables-example">
                                                             <thead>
                                                             <tr>
-                                                                <th>  <button name="deleteSelect" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> </button></th>
-
+                                                                <th>  <button name="deleteSelect" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete </button></th>
                                                                 <th>No</th>
-                                                                <th style="width: 120px;">IMG</th>
-                                                                <th>Slide title</th>
+                                                                <th>Footer cat </th>
                                                                 <th>Order</th>
                                                                 <th>Control </th>
 
@@ -63,20 +62,7 @@ include "init.php";
                                                             </thead>
                                                             <tbody>
                                                             <?php
-
-
-                                                            $stmt=$con->prepare("
-                                                                      
-                                                                      SELECT * FROM tbl_slide  ORDER BY orderSlide ASC 
-                                                                      
-                                  
-                                                              ");
-
-
-                                                         /*   $stmt=$con->prepare("SELECT  tbl_article.*,tbl_menu.menu as menu FROM tbl_article INNER JOIN tbl_menu
-                                                                                ON tbl_article.artcle_id=tbl_menu.menu_id
-
-                                                                              ORDER BY article DESC ");*/
+                                                            $stmt=$con->prepare("SELECT * FROM tbl_runtext  ORDER BY orderList ASC");
                                                             $stmt->execute();
                                                             $rows=$stmt->fetchAll();
                                                             $i='';
@@ -85,28 +71,26 @@ include "init.php";
 
                                                                 echo "<tr class='odd gradeX'>";
 
-                                                                echo"<td><input type='checkbox' name='del[]' value='".$row['slide_id']."' ></td>";
+                                                                echo"<td><input type='checkbox' name='del[]' value='".$row['runtext_id']."' ></td>";
                                                                 echo "<td>". $i."</td>";
-                                                              ?>
-                                                                <td ><img src="../img/slide/<?php echo $row['slide_image']?>" style="width: 100px; height: 35px; " ></td>
-
-                                                                <?php
-
-
-
-                                                                echo "<td><a title='Click to update slide' href='slide.php?do=edit&id=".$row['slide_id']."'>".$row['slide_tile']."</a></td>";
-                                                                echo "<td>".$row['orderSlide']."</td>";
-                                                                echo "<td >";
+                                                                echo "<td><a title='Click to update category footer' href='textinfo.php?do=edit&id=".$row['runtext_id']."'>".$row['runtext_title']."</a></td>";
+                                                                echo "<td>".$row['orderList']."</td>";
+                                                                echo "<td class='center-block'>";
                                                                    if ($row['status']==1){
-                                                                   echo "<a title='Click to disable this article' href='slide.php?do=manage&disableid=".$row['slide_id']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";
+                                                                   echo "<a title='Click to disable this category' href='textinfo.php?do=manage&disableid=".$row['runtext_id']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";
                                                                 }
                                                                 if ($row['status']==0){
-                                                                    echo "<a  title='Click to public slide' href='slide.php?do=manage&publicid=".$row['slide_id']."' class='btn btn-warning btn-xs'> <i class='fa fa-lock' ></i> Disable</a>";
+                                                                    echo "<a  title='Click to public category' href='textinfo.php?do=manage&publicid=".$row['runtext_id']."' class='btn btn-warning btn-xs'> <i class='fa fa-lock' ></i> Disable</a>";
                                                                 }
                                                                 echo" </td>";
                                                                 echo "</tr>";
                                                             }
                                                             ?>
+
+
+
+
+
 
                                                             </tr>
 

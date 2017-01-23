@@ -71,26 +71,43 @@
 
                 </ul>
             </li>
+
+            <li>
+                <a href="#"><i class="fa fa-pencil"></i> Footer <span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="footercatmanage.html"><i class="fa fa-adn"></i> Manage category footer</a>
+                        <a href="footercataddcatfooter.html"><i class="fa fa-plus"></i> Add category footer</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pencil"></i>Item link footer <span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="itemfootermanage.html"><i class="fa fa-adn"></i> Manage link footer</a>
+                        <a href="itemfooteradd.html"><i class="fa fa-plus"></i> Add link footer</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-pencil"></i> Text infomation<span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="textinfomanage.html"><i class="fa fa-adn"></i> Manage Slide</a>
+                        <a href="textinfoadd.html"><i class="fa fa-plus"></i> Add new slide</a>
+                    </li>
+
+                </ul>
+            </li>
             <li>
                 <a href="#"><i class="fa fa-pencil"></i> Side<span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="slidemanage.html"><i class="fa fa-adn"></i> Manage Slide</a>
                         <a href="slideaddslide.html"><i class="fa fa-plus"></i> Add new slide</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-pencil"></i> Footer <span class="fa arrow"></span> </a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="footercatmanage.html"><i class="fa fa-adn"></i> Manage category footer</a>
-                        <a href="#"><i class="fa fa-plus"></i> Add category footer</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-adn"></i> Manage link footer</a>
-                        <a href="#"><i class="fa fa-plus"></i> Add link footer</a>
                     </li>
 
                 </ul>

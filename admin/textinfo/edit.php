@@ -1,7 +1,7 @@
 <?php
 include "init.php";
 
-$catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
+$textinfoid=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
 
 
 
@@ -11,26 +11,26 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
     <div id="page-wrapper">
         <?php
         if (isset($_POST['btnUpdate'])){
-            $txtFooterCat=$_POST['txtFooterCat'];
+            $txtTextInfo=$_POST['txtTextInfo'];
             $descritpion=$_POST['descritpion'];
             $orderList=$_POST['orderList'];
             $status=$_POST['status'];
             $ErrorSms=array();
-            if (empty($txtFooterCat)){
-                $ErrorSms[]="<div class='alert alert-danger' style='margin: 5px -15px;'>Menu update can't <strong>Blank</strong> </div>";
+            if (empty($txtTextInfo)){
+                $ErrorSms[]="<div class='alert alert-danger' style='margin: 5px -15px;'>Title update can't <strong>Blank</strong> </div>";
             }
             foreach ($ErrorSms as $error){
                 echo $error;
             }
             if (empty($ErrorSms)){
-                $stmt=$con->prepare("UPDATE tbl_footer_cat SET footer_title=?,descritpion=?,status=?,orderList=? WHERE footer_cat_id=?");
-                $resultUp=$stmt->execute(array($txtFooterCat,$descritpion,$status,$orderList,$catfootID));
+                $stmt=$con->prepare("UPDATE tbl_runtext SET runtext_title=?,Description=?,status=?,orderList=? WHERE runtext_id=?");
+                $resultUp=$stmt->execute(array($txtTextInfo,$descritpion,$status,$orderList,$textinfoid));
                 if ($resultUp){
                     echo "<script>
-                        document.location='footercatmanage.html'
+                        document.location='textinfomanage.html'
                         </script>";
                 }else{
-                    echo "<div class='alert alert-danger'>Update fail ! <strong> to $txtFooterCat</strong> </div>";
+                    echo "<div class='alert alert-danger'>Update fail ! <strong> to $txtTextInfo</strong> </div>";
                 }
             }
         }
@@ -43,10 +43,9 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col col-sm-6">
-                                    <h3 style="color: #428bca;">Update Footer Category</h3>
+                                    <h3 style="color: #428bca;">Update text information</h3>
                                 </div>
                                 <div class="col col-sm-6">
-
                                     <div class="pull-right">
                                     <button name="btnUpdate" class="btn btn-primary"><i class="fa fa-upload"></i>  Update</button>
 
@@ -57,10 +56,10 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
                         </div>
                         <div class="panel panel-body">
                 <?php
-                   $stmtCat=$con->prepare("SELECT * FROM tbl_footer_cat WHERE footer_cat_id=? limit 1");
-                    $exec=$stmtCat->execute(array($catfootID));
-                    $row=$stmtCat->fetch();
-                    $rowCounFooCat=$stmtCat->rowCount();
+                   $stmt1=$con->prepare("SELECT * FROM tbl_runtext WHERE runtext_id=? limit 1");
+                    $exec=$stmt1->execute(array($textinfoid));
+                    $row=$stmt1->fetch();
+                    $rowCounFooCat=$stmt1->rowCount();
 
                 if ($rowCounFooCat>0){
                 ?>
@@ -72,11 +71,11 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
                                             <label class="pull-right">Footer Title</label>
                                         </div>
                                         <div class="col col-sm-10">
-                                              <input class="form form-control" value="<?php echo $row['footer_title'];?>"  type="text" name="txtFooterCat" placeholder="Menu name" >
+                                              <input class="form form-control" value="<?php echo $row['runtext_title'];?>"  type="text" name="txtTextInfo" placeholder="Menu name" >
                                         </div>
 
                                     <div class="col col-sm-12"><br>
-                                        <textarea class="ckeditor" id="myEditor" name="descritpion" rows="20"style="width: 100%;  "  ><?php echo  $row['descritpion'];?></textarea>
+                                        <textarea class="ckeditor" id="myEditor" name="descritpion" rows="20"style="width: 100%;  "  ><?php echo  $row['Description'];?></textarea>
                                     </div>
 
 

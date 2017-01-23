@@ -1,7 +1,7 @@
 <?php
 include "init.php";
 
-$catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
+$itemfooter=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
 
 
 
@@ -11,26 +11,27 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
     <div id="page-wrapper">
         <?php
         if (isset($_POST['btnUpdate'])){
-            $txtFooterCat=$_POST['txtFooterCat'];
+            $txtitemfooter=$_POST['txtitemfooter'];
             $descritpion=$_POST['descritpion'];
             $orderList=$_POST['orderList'];
+            $categoryFooter=$_POST['categoryFooter'];
             $status=$_POST['status'];
             $ErrorSms=array();
-            if (empty($txtFooterCat)){
-                $ErrorSms[]="<div class='alert alert-danger' style='margin: 5px -15px;'>Menu update can't <strong>Blank</strong> </div>";
+            if (empty($txtitemfooter)){
+                $ErrorSms[]="<div class='alert alert-danger' style='margin: 5px -15px;'>item title update can't <strong>Blank</strong> </div>";
             }
             foreach ($ErrorSms as $error){
                 echo $error;
             }
             if (empty($ErrorSms)){
-                $stmt=$con->prepare("UPDATE tbl_footer_cat SET footer_title=?,descritpion=?,status=?,orderList=? WHERE footer_cat_id=?");
-                $resultUp=$stmt->execute(array($txtFooterCat,$descritpion,$status,$orderList,$catfootID));
+                $stmt=$con->prepare("UPDATE tbl_link_footer SET linkFooter=?,descrition=?,status=?,orderList=?,footer_cat_id=? WHERE link_footer_id=?");
+                $resultUp=$stmt->execute(array($txtitemfooter,$descritpion,$status,$orderList,$categoryFooter,$itemfooter));
                 if ($resultUp){
                     echo "<script>
-                        document.location='footercatmanage.html'
+                        document.location='itemfootermanage.html'
                         </script>";
                 }else{
-                    echo "<div class='alert alert-danger'>Update fail ! <strong> to $txtFooterCat</strong> </div>";
+                    echo "<div class='alert alert-danger'>Update fail ! <strong> to $txtitemfooter</strong> </div>";
                 }
             }
         }
@@ -43,7 +44,7 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col col-sm-6">
-                                    <h3 style="color: #428bca;">Update Footer Category</h3>
+                                    <h3 style="color: #428bca;">Update item footer</h3>
                                 </div>
                                 <div class="col col-sm-6">
 
@@ -57,8 +58,8 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
                         </div>
                         <div class="panel panel-body">
                 <?php
-                   $stmtCat=$con->prepare("SELECT * FROM tbl_footer_cat WHERE footer_cat_id=? limit 1");
-                    $exec=$stmtCat->execute(array($catfootID));
+                   $stmtCat=$con->prepare("SELECT * FROM tbl_link_footer WHERE link_footer_id=? limit 1");
+                    $exec=$stmtCat->execute(array($itemfooter));
                     $row=$stmtCat->fetch();
                     $rowCounFooCat=$stmtCat->rowCount();
 
@@ -72,17 +73,33 @@ $catfootID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0)
                                             <label class="pull-right">Footer Title</label>
                                         </div>
                                         <div class="col col-sm-10">
-                                              <input class="form form-control" value="<?php echo $row['footer_title'];?>"  type="text" name="txtFooterCat" placeholder="Menu name" >
+                                              <input class="form form-control" value="<?php echo $row['linkFooter'];?>"  type="text" name="txtitemfooter" placeholder="Menu name" >
                                         </div>
 
                                     <div class="col col-sm-12"><br>
-                                        <textarea class="ckeditor" id="myEditor" name="descritpion" rows="20"style="width: 100%;  "  ><?php echo  $row['descritpion'];?></textarea>
+                                        <textarea class="ckeditor" id="myEditor" name="descritpion" rows="20"style="width: 100%;  "  ><?php echo  $row['descrition'];?></textarea>
                                     </div>
 
 
 
                                 </div>
                                 <div class="col col-sm-4"">
+                                     <label>Footer Category</label>
+                                     <select class="form form-control" name="categoryFooter">
+                                         <?php
+                                            $stmt=$con->prepare("SELECT * FROM tbl_footer_cat WHERE trust='1'");
+                                         $stmt->execute();
+                                            $rows1=$stmt->fetchAll();
+                                            foreach ($rows1 as $rowcat){
+                                                ?>
+                                                <option class="form form-control" value="<?php echo $rowcat['footer_cat_id']  ?>"<?php if ($rowcat['footer_cat_id']==$row['footer_cat_id']) echo "selected";?>><?php echo $rowcat['footer_title']  ?></option>
+
+                                                <?php
+                                            }
+                                         ?>
+                                      </select>
+                                      <br>
+
                                      <label>Order</label>
                                      <select class="form form-control" name="orderList">
                                          <option class="form form-control" value="1"<?php if($row['orderList']==1)echo "selected";  ?>>First Column</option>

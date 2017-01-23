@@ -10,7 +10,7 @@
 
         include "admin/connection.php";
 
-        $stmt=$con->prepare("SELECT slide_image,orderSlide FROM tbl_slide ORDER BY orderSlide ASC ");
+        $stmt=$con->prepare("SELECT slide_image,orderSlide FROM tbl_slide WHERE status='1'  ORDER BY orderSlide ASC ");
         $stmt->execute();
         $rows=$stmt->fetchAll();
        foreach ($rows as $row){

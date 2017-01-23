@@ -42,7 +42,7 @@ include "init.php";
 
 
                                                         <div class="pull-right">
-                                                            <a href="footercatadd.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create footer category </i></a>
+                                                            <a href="footercataddcatfooter.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create footer category </i></a>
                                                         </div>
                                                     </div>
                                                     <!-- /.panel-heading -->
@@ -54,6 +54,7 @@ include "init.php";
                                                                 <th>  <button name="deleteSelect" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete </button></th>
                                                                 <th>No</th>
                                                                 <th>Footer cat </th>
+                                                                <th>Order</th>
                                                                 <th>Control </th>
 
 
@@ -73,7 +74,7 @@ include "init.php";
                                                                 echo"<td><input type='checkbox' name='del[]' value='".$row['footer_cat_id']."' ></td>";
                                                                 echo "<td>". $i."</td>";
                                                                 echo "<td><a title='Click to update category footer' href='footercat.php?do=edit&id=".$row['footer_cat_id']."'>".$row['footer_title']."</a></td>";
-                                                //
+                                                                echo "<td>".$row['orderList']."</td>";
                                                                 echo "<td class='center-block'>";
                                                                    if ($row['status']==1){
                                                                    echo "<a title='Click to disable this category' href='footercat.php?do=manage&disableid=".$row['footer_cat_id']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";

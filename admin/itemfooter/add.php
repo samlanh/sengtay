@@ -1,7 +1,5 @@
 <?php
 include "init.php";
-
-
 ?>
 
     <!-- Page Content -->
@@ -11,37 +9,39 @@ include "init.php";
 <?php
 
 if (isset($_POST['btnsave'])){
-    $txtFooterCat=$_POST['txtFooterCat'];
+    $txtFooter=$_POST['txtFooter'];
     $descritpion=$_POST['descritpion'];
+    $categoryfooter=$_POST['categoryfooter'];
     $orderList=$_POST['orderList'];
     $status=$_POST['status'];
     $formError=array();
-    if (empty($txtFooterCat)){
-        $formError[]="<div class='alert alert-danger'>Plase input your <strong> footer category title</strong> </div>";
+    if (empty($txtFooter)){
+        $formError[]="<div class='alert alert-danger'>Please input your <strong> footer title</strong> </div>";
     }
     foreach ($formError as $error){
         echo $error;
     }
     if (empty($formError)){
 
-        $checkcat=checkItem("footer_title","tbl_footer_cat",$txtFooterCat);
+        $checkcat=checkItem("linkFooter","tbl_link_footer",$txtFooter);
         // $statement=$con->prepare("SELECT $select FROM $from WHERE $select=?");
 
         if ($checkcat){
-            echo "<div class='alert alert-danger' style='margin: 10px -15px 10px -15px'>Footer category title have  <strong> $txtFooterCat already</strong> </div>";
+            echo "<div class='alert alert-danger' style='margin: 10px -15px 10px -15px'>Footer category title have  <strong> $txtFooter already</strong> </div>";
         }else{
-            $stmt=$con->prepare("INSERT INTO tbl_footer_cat(footer_title,descritpion,status,orderList) VALUES (:zfooter_title,:zdescritpion,:zstatus,:zorderList)");
-           $result= $stmt->execute(array('zfooter_title'=>$txtFooterCat,'zdescritpion'=>$descritpion,'zstatus'=>$status,'zorderList'=>$orderList));
+            $stmt=$con->prepare("INSERT INTO tbl_link_footer(linkFooter,descrition,status,orderList,footer_cat_id)
+                                                      VALUES (:zlinkFooter,:zdescrition,:zstatus,:zorderList,:zfooter_cat_id)");
+           $result= $stmt->execute(array('zlinkFooter'=>$txtFooter,'zdescrition'=>$descritpion,'zstatus'=>$status,'zorderList'=>$orderList,'zfooter_cat_id'=> $categoryfooter ));
             if ($result){
                 echo ' <div class="alert alert-success alert-dismissable fade in" style="margin: 10px -10px;">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Success!</strong> '.$txtFooterCat.' save success
+                        <strong>Success!</strong> '.$txtFooter.' save success
                     </div>
-                    ';
+                  ';
             }else{
                 echo ' <div class="alert alert-danger alert-dismissable fade in" style="margin: 10px -10px;">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Fail!</strong> '.$txtFooterCat.' save fail
+                        <strong>Fail!</strong> '.$txtFooter.' save fail
                     </div>
                     ';
             }
@@ -57,7 +57,7 @@ if (isset($_POST['btnsave'])){
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col col-sm-6">
-                                <h3 style="color: #428bca;">Create Footer Category</h3>
+                                <h3 style="color: #428bca;">Create item footer</h3>
                             </div>
                             <div class="col col-sm-6">
 
@@ -78,7 +78,7 @@ if (isset($_POST['btnsave'])){
                                             <label class="pull-right">Footer Title</label>
                                         </div>
                                         <div class="col col-sm-10">
-                                            <input class="form form-control"  type="text" name="txtFooterCat" placeholder="category footer title" >
+                                            <input class="form form-control"  type="text" name="txtFooter" placeholder="footer title" >
                                         </div>
                         
                                         <div class="col col-sm-12"><br>
@@ -89,6 +89,21 @@ if (isset($_POST['btnsave'])){
                         
                                     </div>
                                     <div class="col col-sm-4"">
+                                    <label>Footer category</label>
+                                    <select class="form form-control" name="categoryfooter">
+                                        <?php
+                                        $stmt=$con->prepare("SELECT * FROM tbl_footer_cat");
+                                        $stmt->execute();
+                                        $rows=$stmt->fetchAll();
+                                        foreach ($rows as $row){
+                                            echo '<option class="form form-control" value="'.$row['footer_cat_id'].'">'.$row['footer_title'].'</option>';
+
+                                        }
+                                          ?>
+
+
+
+                                    </select><br>
                                     <label>Order</label>
                                     <select class="form form-control" name="orderList">
                                         <option class="form form-control" value="1">First Column</option>
