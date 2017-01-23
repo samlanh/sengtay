@@ -159,10 +159,12 @@ if (isset($_POST['deleteSelect'])) {
     }else{
 
         $countDel = $_POST['del'];
+        $trust=0;
         $n = count($countDel);
         for ($i = 0; $i < $n; $i++) {
-            $stmt = $con->prepare("DELETE FROM 	tbl_menu WHERE menu_id = :mid");
-            $stmt->bindParam(':mid', $countDel[$i]);
+            $stmt = $con->prepare("UPDATE tbl_article SET trust=:trust WHERE artcle_id = :artcle_id");
+            $stmt->bindParam(':trust', $trust);
+            $stmt->bindParam(':artcle_id', $countDel[$i]);
             $stmt->execute();
 
             echo $countDel[$i];

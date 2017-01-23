@@ -66,7 +66,7 @@ include "init.php";
                                                             $stmt=$con->prepare("SELECT  tbl_category.*,tbl_menu.menu as menu FROM tbl_category INNER JOIN tbl_menu
                                                                                 ON tbl_category.menu_id=tbl_menu.menu_id
  
-                                                                              ORDER BY category_id DESC ");
+                                                                            WHERE tbl_category.trust='1' ORDER BY category_id DESC ");
                                                             $stmt->execute();
                                                             $rows=$stmt->fetchAll();
                                                             $i='';
@@ -147,9 +147,11 @@ if (isset($_POST['deleteSelect'])) {
 
         $countDel = $_POST['del'];
         $n = count($countDel);
+        $trust=0;
         for ($i = 0; $i < $n; $i++) {
-            $stmt = $con->prepare("DELETE FROM 	tbl_menu WHERE menu_id = :mid");
-            $stmt->bindParam(':mid', $countDel[$i]);
+            $stmt = $con->prepare("UPDATE tbl_category set trust=:trust WHERE category_id = :catid");
+            $stmt->bindParam(':trust', $trust);
+            $stmt->bindParam(':catid', $countDel[$i]);
             $stmt->execute();
 
             echo $countDel[$i];
