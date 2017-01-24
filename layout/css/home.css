@@ -146,7 +146,7 @@ a
 }
 .head_spr
 {	
-	background: green;
+	background: #009247;
 	position: absolute;
 	-ms-transform: rotate(-45deg); /* IE 9 */
     -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
@@ -187,7 +187,7 @@ a
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;
-    background: green !important;
+    background: #009247 !important;
     font-size: 18px;
     z-index: 1;
 }
@@ -203,7 +203,7 @@ a
     z-index: 1;}
 .hr_head
 {
-	background: green;
+	background: #009247;
 	height: 2px;
 	width: 1024px;
 	margin-top: -10px;

@@ -28,13 +28,13 @@ li a {
     display: block;
     color: #fff;
     text-align: center;
-    padding: 7px 16px;
+    padding: 10px 16px;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif !important;
-    background: #2c299e;
+  //  background: #2c299e;
     box-shadow: 0 10px 3px 0px rgba(0,0,0,.2) inset, 0px 15px 15px -5px #ccc;
 
-
+    background-color: #009247;
     }
 
 li a:hover:not(.active) {
@@ -51,7 +51,7 @@ li a:hover:not(.active) {
   text-decoration: none;
   color: #fff;
   border-radius:0px 0px 5px 5px ;
-  background-color: #2c2bbe;
+    background-color: rgba(0, 163, 79, 0.91);
 
 
 }
@@ -76,7 +76,8 @@ li a:hover:not(.active) {
   text-decoration: none;
   color: #fff;
   border-radius:0px 0px 5px 5px ;
-  background-color: #2c2bbe;
+ // background-color: #2c2bbe;
+    background-color: #009247;
 }
 #menu
 {
