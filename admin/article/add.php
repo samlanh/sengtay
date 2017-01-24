@@ -169,7 +169,7 @@ include "init.php";
                   <div class="panel panel-default">
                       <div class="panel-body">
                           <div class="form-group">
-                              <label class="control-label col-sm-3" >images 250X200</label>
+                              <label class="control-label col-sm-3" >images 200X150</label>
                               <div class="box_img" ><img id="images" src="../img/pp.png" style="height: 100px; width: 150px;"></div>
 
                               <input id="fileUpload" style="display: none;" class="input-group" type="file" name="user_image1234" accept="image/*" />

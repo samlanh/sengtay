@@ -11,6 +11,10 @@ if (isset($_SESSION['username'] )&& $_SESSION['status']){
         include "article/add.php";
     }else if ($do=='edit'){
         include "article/edit.php";
+    }else if ($do=='spacial'){
+        include "article/manageSpacial.php";
+    }else if ($do=='comingsoon'){
+        include "article/comingsoon.php";
     }
 }else{
     header('Location:index.html');

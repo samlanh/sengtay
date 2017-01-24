@@ -67,6 +67,8 @@
                     <li>
                         <a href="articlemanage.html"><i class="fa fa-adn"></i> Manage Article</a>
                         <a href="articleaddart.html"><i class="fa fa-plus"></i> Add New Article</a>
+                        <a href="articlespacial.html"><i class="fa fa-plus"></i> Spacial Article</a>
+                        <a href="articlecomingsoon.html"><i class="fa fa-plus"></i> Coming Soon Article</a>
                     </li>
 
                 </ul>
