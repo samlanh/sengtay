@@ -9,7 +9,6 @@ $(function (){
 })
 
 
-
 $('#menuCreatePost').change(function () {
   var selectChangemenu=$(this).find("option:selected").val();
     console.log(selectChangemenu);
