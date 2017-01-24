@@ -26,7 +26,7 @@
       foreach ($rows as $row){
 
           ?>
-          <li><a  href="<?php echo $row['menu_id']; ?>"><?php echo $row['menu']; ?></a></li>
+          <li><a  href="index.php?id=<?php echo $row['menu_id']; ?>"><?php echo $row['menu']; ?></a></li>
       <?php
 
       }
