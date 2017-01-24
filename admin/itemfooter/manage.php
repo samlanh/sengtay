@@ -41,7 +41,7 @@ include "init.php";
 
 
                                                         <div class="pull-right">
-                                                            <a href="footercataddcatfooter.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create footer category </i></a>
+                                                            <a href="itemfooteradd.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create item link footer </i></a>
                                                         </div>
                                                     </div>
                                                     <!-- /.panel-heading -->
