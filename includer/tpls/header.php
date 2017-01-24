@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Macbook</title>
+	<title></title>
 	<meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="layout/css/home.css">
@@ -46,6 +46,6 @@
 						   </div>
 			            </form>
 			        </div>
-			        	<img src="img/gaming.gif" width="100%" height="100px" style="padding:10px; margin-top:12px;">
+			        	<img src="img/banner/gaming.gif" width="100%" height="100px" style="padding:10px; margin-top:12px;">
 
 				</div>
