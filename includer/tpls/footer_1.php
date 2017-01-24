@@ -10,7 +10,7 @@
 		$rowCount=$stmt->rowCount();
 
 		foreach ($rows as $row){
-		echo $idcatfooter=$row['footer_cat_id'];
+			 $idcatfooter=$row['footer_cat_id'];
 			?>
 					<div class="Information" style="width:<?php echo 100/$rowCount.'%';?> ">
 						<h2><b/><?php echo $row['footer_title']; ?></h2>
