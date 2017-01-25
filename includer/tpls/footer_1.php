@@ -10,7 +10,9 @@
 		$rowCount=$stmt->rowCount();
 
 		foreach ($rows as $row){
+
 			 $idcatfooter=$row['footer_cat_id'];
+
 			?>
 					<div class="Information" style="width:<?php echo 100/$rowCount.'%';?> ">
 						<h2><b/><?php echo $row['footer_title']; ?></h2>
@@ -20,8 +22,8 @@
 						$stmt->execute();
 						$rows1=$stmt->fetchAll();
 						foreach ($rows1 as $row1){
-							
-						echo '<a href="about.php?linkid='.$row1['link_footer_id'].'"><h5>'.$row1['linkFooter'].'</h5></a>';
+
+						echo '<a href="about.php?id='.$row1['link_footer_id'].'"><h5>'.$row1['linkFooter'].'</h5></a>';
 						}
 
 						?>
@@ -52,12 +54,12 @@
 			<a href=""><h5>Brands</h5></a>
 			<a href="Specials_offers.php"><h5>Specials</h5></a>
 		</div>-->
-		
+
 
 	</div>
 	<div class="copy_write">
 		<hr style="width:400px; background:#ddd;">
-		<h2>Powered By SgKhmer &nbsp STC Computer © 2017</h2>
+		<h6>Powered By STC Computer @CAM-APP </h6>
 	</div>
   </div>
-<div class="marquee_h"><MARQUEE direction="left" onmouseout="javascript:this.start()" onmouseover="javascript:this.stop()" scrollamount="2" ><h5>កុំព្យូទ័រ មានលក់ Computer គ្រប់ប្រភេទ<h5></MARQUEE> </div>  	
+<div class="marquee_h"><MARQUEE direction="left" onmouseout="javascript:this.start()" onmouseover="javascript:this.stop()" scrollamount="2" ><h5>កុំព្យូទ័រ មានលក់ Computer គ្រប់ប្រភេទ<h5></MARQUEE> </div>

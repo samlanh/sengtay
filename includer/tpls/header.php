@@ -19,31 +19,22 @@
 				</div>
 				<div class="st_e_type">
 					<div class="st_search">
-						<form  class="input_sc">
-							<div class="in_form">
-			                    <input type="text" class="form-control" placeholder="Search">
-			                </div>
+						<form >
 
-		                    <div class="in_form">
-		                    <select class="form-control selected_st">
-		                      <option>----Select Menu----</option>
-							  <option>1</option>
-							  <option>2</option>
-							  <option>3</option>
-							  <option>4</option>
-							  <option>5</option>
-							</select>
-						   </div>
-						   <div class="in_form">
-		                    <select class="form-control selected_st">
-							  <option>-----Select Category-----</option>
-							  <option>1</option>
-							  <option>2</option>
-							  <option>3</option>
-							  <option>4</option>
-							  <option>5</option>
-							</select>
-						   </div>
+							<ul class="controlSearch">
+								<li><input id="search_item_id" type="text"placeholder="search"></li>
+								<li><select>
+										<option>Menu</option>
+										<option>Menu</option>
+									</select>
+								</li>
+								<li><select>
+										<option>Menu</option>
+										<option>Menu</option>
+									</select>
+								</li>
+							</ul>
+
 			            </form>
 			        </div>
 			        	<img src="img/banner/gaming.gif" width="100%" height="100px" style="padding:10px; margin-top:12px;">

@@ -14,7 +14,7 @@
 
       $stmt=$con->prepare("
       
-                SELECT * FROM tbl_menu WHERE trust='1'
+                SELECT * FROM tbl_menu WHERE trust='1' and status='1'
                 
       ");
       $stmt->execute();

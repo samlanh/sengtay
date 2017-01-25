@@ -44,33 +44,30 @@ body
 	height: 150px;
 }
 /*----------search--------------*/
-
-.input_sc
-{
-	background: red;
-	width: 100%;
+.st_search{
+//	background-color: red;
+	height: 50px;
+	padding: 7px;
+}
+.controlSearch li input{
+	height: 35px;
+	width: 235px;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	border-right: 0px;
+	border-radius: 5px 0px 0px 5px;
+}
+.controlSearch li select{
+	height: 35px;
+	width: 180px;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	border-right: 1px;
+	border-radius: 0px;
 }
 
-.st_search
-{
-	width: 100%;
-	background: red;
-	margin-left: 10px;
-}
-.in_form
-{
-	width: 200px;
-	float: left;
-	padding: 0.1px;
-}
-input
-{
-	border-radius: 0px !important;
-}
-.form-control
-{
-	border-radius: 0px !important;
-}
 /*----------slider---------------*/
 #slider
 {
@@ -280,7 +277,8 @@ td
 }
 .con_fo{width: 100%;}
 .copy_write{width: 100%;float: left; text-align: center;}
-.marquee_h{z-index: 12 ;background: #ecf0f1 !important;width: 100%; right: 0;padding: 9px 16px;height: 50px;bottom: 0;position: fixed; }
+.marquee_h{z-index: 12 ;background:#fff;width: 100%; right: 0;padding: 0px 16px;bottom: 0;position: fixed; }
+
 .marquee_h h5{font-size: 16px; color: red;}
 
 
