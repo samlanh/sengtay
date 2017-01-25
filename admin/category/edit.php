@@ -10,12 +10,20 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
     <!-- Page Content -->
     <div id="page-wrapper">
         <?php
+        $stmt=$con->prepare("SELECT *FROM tbl_category WHERE category_id='$catID' limit 1");
+        $stmt->execute();
+        $rowsel=$stmt->fetch();
         if (isset($_POST['btnUpdate'])){
             $menu=$_POST['menu'];
             $txtCat=$_POST['txtCat'];
             $description=$_POST['description'];
             $status=$_POST['status'];
             $keyword=$_POST['keyword'];
+
+
+            $imgFile = $_FILES['imagesUpdate']['name'];
+            $tmp_dir = $_FILES['imagesUpdate']['tmp_name'];
+            $imgSize = $_FILES['imagesUpdate']['size'];
 
             $ErrorSms=array();
             if (empty($txtCat)){
@@ -36,19 +44,51 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                 echo $error;
             }
             if (empty($ErrorSms)){
-                $stmt=$con->prepare("UPDATE tbl_category SET category=?,menu_id=?,description=?,keyword=?,status=? WHERE category_id=?");
-                $resultUp=$stmt->execute(array($txtCat,$menu,$description,$keyword,$status,$catID));
-                if ($resultUp){
-                    echo "<div class='alert alert-success' style='margin: 10px -15px 10px -15px'>Update successfull ! <strong> to $txtCat</strong> </div>";
+
+                if ($imgFile){
+
+                    $upload_dir = '../img/logo/'; // upload directory
+                    $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+                    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+                    $imagesUpdate = rand(1000,1000000).".".$imgExt;
+                    if(in_array($imgExt, $valid_extensions))
+                    {
+                        if($imgSize < 5000000)
+                        {
+                            unlink($upload_dir.$rowsel['icon']);
+                            move_uploaded_file($tmp_dir,$upload_dir.$imagesUpdate);
+                        }
+                        else
+                        {
+                            $errMSG = "Sorry, your file is too large it should be less then 5MB";
+                        }
+                    }
+                    else
+                    {
+                        $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    }
                 }else{
-                    echo "<div class='alert alert-danger'>Update fail ! <strong> to $txtCat</strong> </div>";
+                    $imagesUpdate = $rowsel['icon'];
                 }
+                if (!isset($errMSG)){
+                    $stmt=$con->prepare("UPDATE tbl_category SET category=?,menu_id=?,description=?,keyword=?,status=?,icon=? WHERE category_id=?");
+                    $resultUp=$stmt->execute(array($txtCat,$menu,$description,$keyword,$status,$imagesUpdate,$catID));
+                    if ($resultUp){
+                        echo "<div class='alert alert-success' style='margin: 10px -15px 10px -15px'>Update successfull ! <strong> to $txtCat</strong> </div>";
+                    }else{
+                        echo "<div class='alert alert-danger'>Update fail ! <strong> to $txtCat</strong> </div>";
+                    }
+                }
+
+
+
+
             }
         }
 
         ?>
     <!-- /.row -->
-   <form method="post">
+   <form method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -94,6 +134,12 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
 
                                 </div>
                                 <div class="col col-sm-4"">
+                 <div class="form-group">
+                     <label class="control-label col-sm-3" >images 250X200</label>
+                     <div class="box_img" ><img id="images"   src="../img/logo/<?php echo $row['icon']?>" style="height: 60px; width: 60px;"></div>
+
+                     <input id="fileUpload" style="display: none;" class="input-group" type="file" name="imagesUpdate" accept="image/*" />
+                 </div><br/><br/><br/><br/><br/><br/>
                                      <label>Menu</label>
                                      <select class="form form-control" name="menu">
                                          <option class="form form-control" value="0">Select Menu</option>
@@ -113,10 +159,10 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
 
 
                                      </select><br>
-                                    <label>Possibility</label>
+                                    <label>Status</label>
                                     <select class="form form-control" name="status">
-                                        <option class="form form-control" value="1" <?php if($row['keyword']==1)echo "selected";  ?>>Public</option>
-                                        <option class="form form-control" value="0"<?php if($row['keyword']==0)echo "selected";  ?>>Disable</option>
+                                        <option class="form form-control" value="1" <?php if($row['status']==1)echo "selected";  ?>>Public</option>
+                                        <option class="form form-control" value="0"<?php if($row['status']==0)echo "selected";  ?>>Disable</option>
                                     </select><br>
                                     <label>Keyword</label>
                                     <textarea class="form form-control" rows="5" style="width: 100%;" name="keyword"><?php echo $row['keyword'];  ?></textarea>

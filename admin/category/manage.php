@@ -51,8 +51,9 @@ include "init.php";
                                                         <table class="table table-striped table-hover" id="dataTables-example">
                                                             <thead>
                                                             <tr>
-                                                                <th>  <button name="deleteSelect" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete </button></th>
+                                                                <th>  <button name="deleteSelect" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>Trust </button></th>
                                                                 <th>No</th>
+                                                                <th>icon</th>
                                                                 <th>Category</th>
                                                                 <th>Menu </th>
                                                                 <th>Description</th>
@@ -60,6 +61,7 @@ include "init.php";
                                                                 <th>Control</th>
 
                                                             </tr>
+
                                                             </thead>
                                                             <tbody>
                                                             <?php
@@ -77,12 +79,16 @@ include "init.php";
 
                                                                 echo"<td><input type='checkbox' name='del[]' value='".$row['category_id']."' ></td>";
                                                                 echo "<td>". $i."</td>";
+
+                                                               ?>
+                                                                <td><img src="../img/logo/<?php echo $row['icon'] ?>"style="width: 50px;height: 50px;"></td>
+                                                                <?php
                                                                 echo "<td><a title='Click to update Category' href='category.php?do=edit&id=".$row['category_id']."'>".$row['category']."</a></td>";
                                                                 echo "<td class='tblUserTr'>".$row['menu']."</td>";
                                                                 echo "<td class='tblUserTr'>".$row['description']."</td>";
                                                 //                echo "<td class='tblUserTr'>".$row['Access']."</td>";
 
-                                                                echo "<td class='center-block'>";
+                                                                echo "<td >";
                                                                    if ($row['status']==1){
                                                                    echo "<a title='Click to disable this category' href='category.php?do=manage&disableid=".$row['category_id']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";
                                                                 }

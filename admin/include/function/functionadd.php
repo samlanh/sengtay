@@ -20,16 +20,18 @@ function insert($txtMenu,$menuDes,$menuKeyword,$status){
 
 }
 
-function insertcat($category,$menu_id,$description,$keyword,$status){
+function insertcat($category,$menu_id,$description,$keyword,$status,$id_category,$image){
     global  $con;
-    $stmt=$con->prepare("INSERT INTO tbl_category (category,menu_id,description,keyword,status) VALUES (:zcat,:zmenu_id,:zDesc,:zkeyword,:zstatus)");
+    $stmt=$con->prepare("INSERT INTO tbl_category (category,menu_id,description,keyword,status,id_category,icon) VALUES (:zcat,:zmenu_id,:zDesc,:zkeyword,:zstatus,:zid_category,:images)");
     $insertcat=$stmt->execute(array
         (
             'zcat'=>$category,
             'zmenu_id'=>$menu_id,
             'zDesc'=>$description,
             'zkeyword'=>$keyword,
-            'zstatus'=>$status
+            'zstatus'=>$status,
+             'zid_category'=>$id_category   ,
+            'images'=>$image
         )
     );
     if ($insertcat){

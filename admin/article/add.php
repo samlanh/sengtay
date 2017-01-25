@@ -116,12 +116,7 @@ include "init.php";
               }
 
           }
-
-
-
-
-
-      }
+     }
         ?>
       <form method="POST" enctype="multipart/form-data" class="form-horizontal" >
           <div class="row" style="margin: 10px">

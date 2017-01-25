@@ -50,3 +50,20 @@
     top: 100px;
 
 }
+
+.imagesicon{
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+   // background-color: grey;
+}
+
+.categoryBannerShow{
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin: 10px;
+    width: 1024px;
+    height: 135px;
+    background-color: red;
+
+}
