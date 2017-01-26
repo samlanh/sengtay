@@ -17,7 +17,6 @@
 <script src="layout/js/sb-admin-2.js"></script>
 <script src="layout/js/backend.js"></script>
 
-<script type="text/javascript" src="layout/js/nicEdit-latest.js"></script>
 
 <script type="text/javascript" src="layout/js/ckeditor/ckeditor.js"></script>
 
@@ -26,12 +25,7 @@
     $(document).ready(function() {
         $('#dataTables-example').dataTable();
     });
-    //<![CDATA[
-    bkLib.onDomLoaded(function() {
-        new nicEditor({maxHeight : 200}).panelInstance('area');
-        new nicEditor({fullPanel : true,maxHeight : 200}).panelInstance('area1');
-    });
-    //]]>
+   
 </script>
 
 

@@ -44,10 +44,24 @@
     border-radius: 5px;
     position: relative;
 }
+.slide_banner{
+
+    height: 80px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    position: relative;
+}
 .info{
     position: absolute;
     left: 400px;
     top: 100px;
+
+}
+.info1{
+    position: absolute;
+    left: 400px;
+    top: 0px;
 
 }
 

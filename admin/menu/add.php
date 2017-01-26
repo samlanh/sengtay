@@ -71,11 +71,12 @@ if (isset($_POST['btnMenu'])){
                                         <div class="col col-sm-10">
                                               <input class="form form-control" type="text" name="txtMenu" placeholder="Input new menu name">
                                         </div>
-                                    <div class="col col-sm-2"><br>
-                                        <label class="pull-right">Description</label>
-                                    </div>
-                                    <div class="col col-sm-10"><br>
-                                        <textarea class="form form-control" id="area" rows="20"style="width: 100%;" name="menuDes"></textarea>
+
+                                    <div class="col col-sm-12"><br>
+
+                                        <textarea   class="ckeditor" id="myEditor" name="menuDes" cols="35" rows="20"></textarea>
+
+
                                     </div>
 
                                 </div>

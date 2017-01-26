@@ -7,7 +7,7 @@ include "init.php";
     
         if (isset($_POST['btnaddslide'])){
             $txttitle=$_POST['txttitle'];
-            $orderpost=$_POST['orderpost'];
+            $position=$_POST['position'];
 
             $imagesfile1=$_FILES['user_image']['name'];
             $images_dir1=$_FILES['user_image']['tmp_name'];
@@ -27,13 +27,19 @@ include "init.php";
                         Please choose your image slide
                     </div>';
             }
+            if($position==0){
+                $errorPost[] = '<div class="alert alert-danger alert-dismissable fade in" style="font-size: 15px;margin: 10px;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        Please choose your position banner
+                    </div>';
+            }
             foreach ($errorPost as $errorShow){
                 echo $errorShow;
             }
 
             if (empty($errorShow)){
 
-                $upload_dir1="../img/slide/";
+                $upload_dir1="../img/banner/";
 
                 $imgExt1=strtolower(pathinfo($imagesfile1,PATHINFO_EXTENSION));
                 $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
@@ -49,12 +55,12 @@ include "init.php";
                 }
                 if (!isset($errMSG)){
 
-                    $stmt=$con->prepare("INSERT INTO tbl_slide (slide_tile,slide_image,orderSlide)
+                    $stmt=$con->prepare("INSERT INTO tbl_banner (banner_title,images_banner,position_ban)
 
-          VALUES (:zslide_tile,:zslide_image,:zorderSlide)
+          VALUES (:zbanner_title,:zimages_banner,:zposition_ban)
         ");
                     $insert= $stmt->execute(array(
-                       'zslide_tile'=>$txttitle,'zslide_image'=>$userPostImg,'zorderSlide'=>$orderpost
+                       'zbanner_title'=>$txttitle,'zimages_banner'=>$userPostImg,'zposition_ban'=>$position
                     ));
                     if ($insert){
                         echo ' <div class="alert alert-success alert-dismissable fade in" style="margin: 0 25px;">
@@ -90,13 +96,13 @@ include "init.php";
                 <div class="panel-heading">
                     <div class="row" style="padding: 10px;">
                         <div class="col col-sm-6">
-                            <h3 style="color: #428bca;">Create slide</h3>
+                            <h3 style="color: #428bca;">Create Banner</h3>
                         </div>
                         <div class="col col-sm-6">
 
                             <div class="pull-right">
                                 <button  name="btnaddslide" class=" btn btn-primary"><i class="fa fa-pencil"></i>  Save</button>
-                                <a href="bannermanage.html" class="btn btn-danger "><i class="fa fa-backward"></i> back</a>
+                                <a href="slidemanage.html" class="btn btn-danger "><i class="fa fa-backward"></i> back</a>
                             </div>
                         </div>
                     </div>
@@ -108,7 +114,7 @@ include "init.php";
                                 <label class="pull-right">Title</label>
                             </div>
                             <div class="col col-sm-10">
-                                <input class="form form-control" type="text" name="txttitle" placeholder="Input slide name">
+                                <input class="form form-control" type="text" name="txttitle" placeholder="Input banner name">
                             </div>
                             
 
@@ -116,10 +122,11 @@ include "init.php";
                         <div class="col col-sm-3"">
 
                             <div class="form-group">
-                                <label class="control-label col-sm-4">Position</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" name="orderpost">
-                                        <option value="1" selected>Position Left</option>
+                                <label class="control-label col-sm-3">Position</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="positionban" name="position">
+                                        <option value="0" selected>Select position</option>
+                                        <option value="1">Position Left</option>
                                         <option value="2">Position Right</option>
                                         
 
@@ -130,15 +137,15 @@ include "init.php";
                         </div>
                     <div class="col col-sm-3">
 
-                        <input id="uploadslide"  class="input-group" type="file" name="user_image" accept="image/*" />
+                        <input id="upload_banner"  class="input-group" type="file" name="user_image" accept="image/*" />
                     </div>
                     <div class="col col-sm-12"><br>
-                        <div class="slide_backend">
+                        <div class="slide_banner">
                             
-                            <img src="../img/logo/slide.png" style="height: 340px; margin-left: 300px;">
+                            <img src="../img/logo/slide.png" style="height: 80px; margin-left: 300px;">
 
-                            <div class="info">
-                                <h3>Recommend width 1024X340</h3>
+                            <div class="info1">
+                                <h3>Please select position before brow banner</h3>
                                 
                             </div>
 

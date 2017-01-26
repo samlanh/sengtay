@@ -89,11 +89,9 @@ $menuId=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                                         <div class="col col-sm-10">
                                               <input class="form form-control" value="<?php echo $rowsMn['menu'];?>"  type="text" name="txtMenu" placeholder="Menu name" >
                                         </div>
-                                    <div class="col col-sm-2"><br>
-                                        <label class="pull-right">Description</label>
-                                    </div>
-                                    <div class="col col-sm-10"><br>
-                                        <textarea class="form form-control" name="description" rows="20"style="width: 100%;  "  ><?php echo  $rowsMn['description'];?></textarea>
+                                   
+                                    <div class="col col-sm-12"><br>
+                                        <textarea class="ckeditor" id="myEditor" name="description" rows="20"style="width: 100%;  "  ><?php echo  $rowsMn['description'];?></textarea>
                                     </div>
 
                                 </div>
