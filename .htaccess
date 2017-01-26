@@ -16,6 +16,9 @@ RewriteRule ^admin/slide([a-zA-z0-9]+) admin/slide.php?do=$1
 RewriteRule ^admin/footercat([a-zA-z0-9]+) admin/footercat.php?do=$1
 RewriteRule ^admin/itemfooter([a-zA-z0-9]+) admin/itemfooter.php?do=$1
 RewriteRule ^admin/textinfo([a-zA-z0-9]+) admin/textinfo.php?do=$1
+RewriteRule ^admin/banner([a-zA-z0-9]+) admin/banner.php?do=$1
+
+
 #admin/textinfo.php?do=manage insteat by textinfomanage.html
 
 RewriteRule ^admin/user([a-zA-z0-9]+)/([a-zA-z0-9]+) admin/user.php?do=$1&id=$2

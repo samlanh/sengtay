@@ -50,7 +50,7 @@ body
 	padding: 7px;
 }
 .controlSearch li input{
-	height: 35px;
+	height: 38px;
 	width: 235px;
 	border-left: 1px solid #eee;
 	border-top: 1px solid #eee;
@@ -311,10 +311,7 @@ td
 	font-size: 20px;
 	position: absolute;
 	top: 145px;
-	right: 80px;
-	text-align: center;
-	font-weight: 700;
-
+	right: 40px;
 }
 .tilePro h3{
 	color: #606060;
@@ -322,7 +319,6 @@ td
 	font-weight: 700;
 	position: absolute;
 	top: 160px;
-
 
 }
 .descripshow h5{

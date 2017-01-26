@@ -62,4 +62,18 @@
 		<h6>Powered By STC Computer @CAM-APP </h6>
 	</div>
   </div>
-<div class="marquee_h"><MARQUEE direction="left" onmouseout="javascript:this.start()" onmouseover="javascript:this.stop()" scrollamount="2" ><h5>កុំព្យូទ័រ មានលក់ Computer គ្រប់ប្រភេទ<h5></MARQUEE> </div>
+<div class="marquee_h"><MARQUEE direction="left" scrollamount=5 onmouseout="javascript:this.start()" onmouseover="javascript:this.stop()" scrollamount="2" ><h5>
+				<?php
+				include "admin/connection.php";
+				$stmt=$con->prepare("SELECT * From tbl_runtext WHERE status='1' ORDER BY 	orderList ASC ");
+				$stmt->execute();
+				$result=$stmt->fetchAll();
+				foreach ($result as $row){
+					echo'<div class="margueetext">'. $row['Description'].'</div>';
+				}
+
+				?>
+
+			
+<h5></MARQUEE>
+</div>

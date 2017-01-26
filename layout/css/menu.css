@@ -25,37 +25,19 @@ li:last-child {
 }
 
 li a {
-    display: block;
+    background-color: #dc2527;
+    box-shadow: 0px 20px 5px 0px #ccc;
     color: #fff;
-    text-align: center;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif !important;
     padding: 10px 16px;
+    text-align: center;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif !important;
-  //  background: #2c299e;
-    box-shadow: 0 10px 3px 0px rgba(0,0,0,.2) inset, 0px 15px 15px -5px #ccc;
-
-    background-color: #009247;
-    }
-
-li a:hover:not(.active) {
-  opacity: 1;
-  box-shadow: 0-10px 3px rgba(0,0,0,.2) inset, 0 15px 15px -5px #ccc;
-  -moz-transform: rotateX(20deg);
-  -webkit-transform: rotateX(20deg);
-  transform: rotateX(20deg);
-  -moz-transform-origin: 50% 0;
-  -webkit-transform-origin: 50% 0;
-  transform-origin: 50% 0;
-  -webkit-transition: all .5s;
-  transition: all .3s;
-  text-decoration: none;
-  color: #fff;
-  border-radius:0px 0px 5px 5px ;
-    background-color: rgba(0, 163, 79, 0.91);
-
-
 }
-
+li a:hover:not(.active) {
+    background: #009247 ;
+    color: #fff;
+}
 .active {
     background-color: #2c2bbe;
     border-radius: 0px 0px 0px 0px;

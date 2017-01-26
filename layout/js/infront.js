@@ -9,32 +9,35 @@ function Main(page) {
         }
     });
 }
-$("#search_item_id").keyup(function () {
+/*$("#search_item_id").keyup(function () {
     var valueTextSearch=$(this).val();
     if (valueTextSearch==""){
+        console.log("zerro");
+        $('#slider').show();
+        $('.ddd').hide();
+        $('#show_default').show();
+
+    }else {
+        console.log(valueTextSearch);
+
+        $('.ddd').show();
+        $('#slider').hide();
+        $('#show_default').hide();
+
         $.ajax({
-            url: "ajax/fetch.php",
+            url: "ajax/search_item.php",
             method: "POST",
             dataType: "text",
-            data: {page: page},
+            data: {valueTextSearch: valueTextSearch},
             success:function (data) {
-                $('#product_full_profile').html(data);
+                $('.ddd').html(data);
             }
         });
-    }else {
-        $.ajax({
-            url:"ajax/search_item.php",
-            method:"POST",
-            cache:false,
-            data:{valueTextSearch:valueTextSearch},
-            success:function (data) {
-                $("#product_full_profile").html(data);
-                // var valueSub=$("#selectCategoriesPost").val();
-                console.log(data);
-            }
-        });
+        
+      
+
     }
 
-});
+});*/
 
 Main();

@@ -28,10 +28,8 @@
 										<option>Menu</option>
 									</select>
 								</li>
-								<li><select>
-										<option>Menu</option>
-										<option>Menu</option>
-									</select>
+								<li>
+									<button>Search</button>
 								</li>
 							</ul>
 

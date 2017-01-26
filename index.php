@@ -1,7 +1,7 @@
 <?php
 
 include"init.php";
-echo "<div id='product_full_profile'>";
+
 
 	if (empty($_GET['id'])){
 		
@@ -27,7 +27,7 @@ echo "<div id='product_full_profile'>";
 				<div class="specials">
 					<nav class="category">
 						<il>
-							<div class="categoryBannerShow1"> <img src="img/banner/spm.png" style="height: 135px;"> </div>
+							<div class="categoryBannerShow1">  <img src="img/banner/<?php echo $rowCat['cat_banner'];?>" style="height: 135px;"> </div>
 						</il>
 						<li class="st_ca" id="<?php echo $rowCat['id_category'] ?>"><h6><?php echo $rowCat['category']; ?>
 								&nbsp<span class="head_spr"></span></h6></li>
@@ -87,7 +87,9 @@ echo "<div id='product_full_profile'>";
 			<?php
 		}
 	}
-echo "</div>";
+
+
+echo "<div class='ddd' style='width: 1024px;  background-color: #fff;'></div>";
 
 include("$tpls/footer_1.php");
 include("$tpls/footer.php");
