@@ -10,7 +10,7 @@
 
 
 </head>
-<body style="background:#fff;">
+<body style="background:#FDFDFD;">
 	<div class="wrapper">
 			<div class="header">
 				<div class="st_logo">

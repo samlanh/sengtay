@@ -302,8 +302,8 @@ td
 
 
 .tb_row {
-	background-color: #fff; position: relative; width: 25%; height: 520px; float: left; border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;}
-.tb_row img{text-align: center;}
+	background-color: #fff; position: relative; width: 25%; height: 500px; float: left; border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;text-align: }
+.tb_row img{padding: 0px 0px 0px 20px ; max-width: 200px; max-height: 150px;}
 .tb_row h3,h5{margin-left: 20px;}
 .tb_row h5{font-size: 12px;margin-left: 0px; line-height: 20px;}
 
