@@ -48,7 +48,7 @@ include"init.php";
 
 							<div class="tb_row">
 								<img src="img/<?php echo $rowSpacial['images_pro']; ?>"
-									 style=" position: absolute;left: 25px;" width="200px" height="150px">
+									 style=" position: absolute;left: 25px; max-width:200px; max-height:150px">
 								<div class="priceShow"> $<?php echo $rowSpacial['new_price']; ?></div>
 
 								<div class="tilePro">
