@@ -38,7 +38,7 @@ include "init.php";
 
                                                     <div class="panel panel-default">
                                                     <div class="panel-heading">
-                                                       <h3 style="color: #428bca;">Manage article</h3>
+                                                       <h3 style="color: #428bca;">Manage coming soon</h3>
 
 
                                                         <div class="pull-right">

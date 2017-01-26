@@ -58,12 +58,16 @@
    // background-color: grey;
 }
 
-.categoryBannerShow{
+.categoryBannerShowBackend{
+    position: relative;
     border-radius: 5px;
     border: 1px solid #eee;
-    margin: 10px;
-    width: 1024px;
-    height: 135px;
-    background-color: red;
+  margin-top: 5px;
+    max-width: 650px;
 
+}
+.categoryBannerShowBackend .img_in{
+    position: absolute;
+    top:50px;
+    left: 150px;
 }

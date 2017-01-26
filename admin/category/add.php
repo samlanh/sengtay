@@ -18,24 +18,37 @@ if (isset($_POST['btnAddCat'])){
     $keyword=$_POST['keyword'];
     $id_category=$_POST['id_category'];
 
+    $imagesfile=$_FILES['cat_banner']['name'];
+    $images_dir=$_FILES['cat_banner']['tmp_name'];
+    $imagSize=$_FILES['cat_banner']['size'];
+
     $imagesfile1=$_FILES['user_image1234']['name'];
     $images_dir1=$_FILES['user_image1234']['tmp_name'];
     $imagSize1=$_FILES['user_image1234']['size'];
 
+   
+
 
     $formError=array();
     if (empty($txtCat)){
-        $formError[]="<div class='alert alert-danger'>Plase input your <strong> menu name</strong> </div>";
+        $formError[]="<div class='alert alert-danger'>Please input your <strong> menu name</strong> </div>";
     }
     if (empty($keyword)){
-        $formError[]="<div class='alert alert-danger'>Plase input your <strong> keyword</strong> </div>";
+        $formError[]="<div class='alert alert-danger'>Please input your <strong> keyword</strong> </div>";
     }
     if (empty($id_category)){
-        $formError[]="<div class='alert alert-danger'>Plase input your <strong> id category</strong> </div>";
+        $formError[]="<div class='alert alert-danger'>Please input your <strong> id category</strong> </div>";
     }
     if ($menu==0){
-        $formError[]="<div class='alert alert-danger'>Plase select <strong> menu</strong> </div>";
+        $formError[]="<div class='alert alert-danger'>Please select <strong> menu</strong> </div>";
     }
+    if (empty($imagesfile1)){
+        $formError[]="<div class='alert alert-danger'>Please choose  image <strong> icon category </strong> </div>";
+    }
+    if (empty($imagesfile)){
+        $formError[]="<div class='alert alert-danger'>Please choose image  <strong> Banner category </strong> </div>";
+    }
+
     foreach ($formError as $error){
         echo $error;
     }
@@ -48,8 +61,24 @@ if (isset($_POST['btnAddCat'])){
             echo "<div class='alert alert-danger' style='margin: 10px -15px 10px -15px'>Category have  <strong> $txtCat already</strong> </div>";
         }else{
 
-            $upload_dir1="../img/logo/";
+           
+            $upload_dir="../img/banner/";
+            $imgExt=strtolower(pathinfo($imagesfile,PATHINFO_EXTENSION));
+            $valid_extensions1 = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+            $imgCat=rand(1000,1000000).".".$imgExt;
+            if (in_array($imgExt,$valid_extensions1)){
+                if ($imagSize<5000000){
+                    move_uploaded_file($images_dir,$upload_dir.$imgCat);
+                }else{
+                    $errMSG = "Sorry, your file of banner is too large.";
+                }
+            }else{
+                $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            }
+            
 
+            $upload_dir1="../img/logo/";
+            
             $imgExt1=strtolower(pathinfo($imagesfile1,PATHINFO_EXTENSION));
             $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
             $userPostImg=rand(1000,1000000).".".$imgExt1;
@@ -63,7 +92,7 @@ if (isset($_POST['btnAddCat'])){
                 $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             }
             if (!isset($errMSG)){
-                insertcat($txtCat,$menu,$catDes,$keyword,$ststus,$id_category,$userPostImg);
+                insertcat($txtCat,$menu,$catDes,$keyword,$ststus,$id_category,$userPostImg,$imgCat);
             }
         }
     }
@@ -84,17 +113,16 @@ if (isset($_POST['btnAddCat'])){
 
                                     <div class="pull-right">
                                     <button  name="btnAddCat" class=" btn btn-primary"><i class="fa fa-pencil"></i>  Save</button>
-                                      <a href="#" class="btn btn-danger "><i class="fa fa-backward"></i> back</a>
+                                      <a href="categorymanage.html" class="btn btn-danger "><i class="fa fa-backward"></i> back</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-body">
                             <div class="row">
-                                <div class="categoryBanner">
-                                   
-                                 </div>
                                 <div class="col col-sm-8">
+
+
 
                                         <div class="col col-sm-2">
                                             <label class="pull-right">Category</label>
@@ -107,6 +135,16 @@ if (isset($_POST['btnAddCat'])){
 
                                         <textarea  name="catDes" class="ckeditor" id="myEditor" name="myEditor" cols="35" rows="20"></textarea>
                                     </div>
+                                    <div class="col col-sm-12"><br>
+                                        <label>Banner of Category</label>
+                                        <div class="categoryBannerShowBackend">
+                                            <div class="img_in">Recommand 1024X135</div>
+                                            <img  id="images_cat" src="../img/pp.png" style="height: 135px; margin-left: 300px;">
+                                        </div>
+                                        <input  id="fileUploadCat" style="display: none;" class="input-group" type="file" name="cat_banner" accept="image/*" />
+
+                                    </div>
+
 
                                 </div>
                                 <div class="col col-sm-4"">
@@ -115,7 +153,7 @@ if (isset($_POST['btnAddCat'])){
 
                                     <div class="form-group">
                                         <label>Icon category</label>
-                                        <div class="box_img" ><img id="images" src="../img/pp.png" style="height: 100px; width: 150px;"></div>
+                                        <div class="box_img"><img id="images" src="../img/pp.png" style="height: 100px; width: 150px;"></div>
 
                                         <input style="visibility: hidden " id="fileUpload" class="input-group" type="file" name="user_image1234" accept="image/*" />
                                     </div>
@@ -141,7 +179,7 @@ if (isset($_POST['btnAddCat'])){
 
                                     ?>
                                 </select><br>
-                                    <label>Possibility</label>
+                                    <label>Status</label>
                                     <select class="form form-control" name="ststus" >
                                         <option class="form form-control" value="1">Public</option>
                                         <option class="form form-control" value="0">UnPublic</option>
@@ -150,6 +188,7 @@ if (isset($_POST['btnAddCat'])){
                                     <textarea name="keyword" class="form form-control" rows="5" style="width: 100%;" ></textarea>
 
                                 </div>
+
                             </div>
                         </div>
 

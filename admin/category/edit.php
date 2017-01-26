@@ -20,6 +20,10 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
             $status=$_POST['status'];
             $keyword=$_POST['keyword'];
 
+            $imgFile1 = $_FILES['cat_banner']['name'];
+            $tmp_dir1 = $_FILES['cat_banner']['tmp_name'];
+            $imgSize1 = $_FILES['cat_banner']['size'];
+
 
             $imgFile = $_FILES['imagesUpdate']['name'];
             $tmp_dir = $_FILES['imagesUpdate']['tmp_name'];
@@ -44,6 +48,31 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                 echo $error;
             }
             if (empty($ErrorSms)){
+                if ($imgFile1){
+
+                    $upload_dir1 = '../img/banner/'; // upload directory
+                    $imgExt1 = strtolower(pathinfo($imgFile1,PATHINFO_EXTENSION)); // get image extension
+                    $valid_extensions1 = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+                    $image_cat_banner = rand(1000,1000000).".".$imgExt1;
+                    if(in_array($imgExt1, $valid_extensions1))
+                    {
+                        if($imgSize < 5000000)
+                        {
+                            unlink($upload_dir1.$rowsel['cat_banner']);
+                            move_uploaded_file($tmp_dir1,$upload_dir1.$image_cat_banner);
+                        }
+                        else
+                        {
+                            $errMSG = "Sorry, your banner images is too large it should be less then 5MB";
+                        }
+                    }
+                    else
+                    {
+                        $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    }
+                }else{
+                    $image_cat_banner = $rowsel['cat_banner'];
+                }
 
                 if ($imgFile){
 
@@ -71,8 +100,8 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                     $imagesUpdate = $rowsel['icon'];
                 }
                 if (!isset($errMSG)){
-                    $stmt=$con->prepare("UPDATE tbl_category SET category=?,menu_id=?,description=?,keyword=?,status=?,icon=? WHERE category_id=?");
-                    $resultUp=$stmt->execute(array($txtCat,$menu,$description,$keyword,$status,$imagesUpdate,$catID));
+                    $stmt=$con->prepare("UPDATE tbl_category SET category=?,menu_id=?,description=?,keyword=?,status=?,icon=?,cat_banner=? WHERE category_id=?");
+                    $resultUp=$stmt->execute(array($txtCat,$menu,$description,$keyword,$status,$imagesUpdate,$image_cat_banner,$catID));
                     if ($resultUp){
                         echo "<div class='alert alert-success' style='margin: 10px -15px 10px -15px'>Update successfull ! <strong> to $txtCat</strong> </div>";
                     }else{
@@ -101,7 +130,7 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                                     <div class="pull-right">
                                     <button name="btnUpdate" class="btn btn-primary"><i class="fa fa-upload"></i>  Update</button>
 
-                                      <a href="usermanage.html" class="btn btn-danger "><i class="fa fa-backward"></i> Back</a>
+                                      <a href="categorymanage.html" class="btn btn-danger "><i class="fa fa-backward"></i> Back</a>
                                     </div>
                                 </div>
                             </div>
@@ -128,6 +157,15 @@ $catID=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
 
                                     <div class="col col-sm-12"><br>
                                         <textarea class="ckeditor" id="myEditor" name="description" rows="20"style="width: 100%;  "  ><?php echo  $row['description'];?></textarea>
+                                    </div>
+                                    <div class="col col-sm-12"><br>
+                                        <label>Banner of Category</label>
+                                        <div class="categoryBannerShowBackend">
+                                            <div class="img_in">Recommand 1024X135</div>
+                                            <img  id="images_cat" src="../img/banner/<?php echo $row['cat_banner'];?>" style="max-width: 650px;">
+                                        </div>
+                                        <input  id="fileUploadCat" style="display: none;" class="input-group" type="file" name="cat_banner" accept="image/*" />
+
                                     </div>
 
 

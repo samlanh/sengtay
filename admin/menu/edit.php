@@ -58,7 +58,7 @@ $menuId=(isset($_GET['id']) && is_numeric($_GET['id'])?intval($_GET['id']):0);
                                     <div class="pull-right">
                                     <button name="btnMenuUpdate" class="btn btn-primary"><i class="fa fa-upload"></i>  Update</button>
 
-                                      <a href="usermanage.html" class="btn btn-danger "><i class="fa fa-backward"></i> Back</a>
+                                      <a href="menumanage.html" class="btn btn-danger "><i class="fa fa-backward"></i> Back</a>
                                     </div>
                                 </div>
                             </div>

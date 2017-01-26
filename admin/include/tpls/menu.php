@@ -118,16 +118,13 @@
                 <a href="#"><i class="fa fa-pencil"></i> Banner <span class="fa arrow"></span> </a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#"><i class="fa fa-adn"></i> Manage banner</a>
-                        <a href="#"><i class="fa fa-plus"></i> Banner</a>
+                        <a href="bannermanage.html"><i class="fa fa-adn"></i> Manage banner</a>
+                        <a href="banneradd.html"><i class="fa fa-plus"></i>Create Banner</a>
                     </li>
 
                 </ul>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-comment"></i> Comments<div style="margin-top: -5px ;border-radius: 5px;padding: 5px 10px; background-color: #d9534f; color: #fff; float: right;">20</div></a>
-
-            </li>
+          
             <li class="active">
                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Poster<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

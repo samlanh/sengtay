@@ -260,13 +260,13 @@ document.location='articlemanage.html'</script>";
                           </div>
 
                           <div class="form-group">
-                              <label class="control-label col-sm-3" for="email">Promotion</label>
+                              <label class="control-label col-sm-3" for="email">Spacial</label>
                               <div class="col-sm-10">
                                   <label class="radio-inline">
-                                      <input type="radio" name="promotion" value="1"  <?php if ($row1['promotion']==1)echo 'checked';?>>Promotion
+                                      <input type="radio" name="promotion" value="1"  <?php if ($row1['promotion']==1)echo 'checked';?>>Spacial price
                                   </label>
                                   <label class="radio-inline">
-                                      <input type="radio" name="promotion"  value="0" <?php if ($row1['promotion']==0)echo 'checked';?>>No promoton
+                                      <input type="radio" name="promotion"  value="0" <?php if ($row1['promotion']==0)echo 'checked';?>>No spacial
                                   </label>
                               </div>
                           </div>

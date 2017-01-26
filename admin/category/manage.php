@@ -85,7 +85,7 @@ include "init.php";
                                                                 <?php
                                                                 echo "<td><a title='Click to update Category' href='category.php?do=edit&id=".$row['category_id']."'>".$row['category']."</a></td>";
                                                                 echo "<td class='tblUserTr'>".$row['menu']."</td>";
-                                                                echo "<td class='tblUserTr'>".$row['description']."</td>";
+                                                                echo "<td class='tblUserTr'> <img style='width: 100px;' src='../img/banner/".$row['cat_banner']."'></td>";
                                                 //                echo "<td class='tblUserTr'>".$row['Access']."</td>";
 
                                                                 echo "<td >";

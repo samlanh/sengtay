@@ -41,7 +41,7 @@ include "init.php";
 
 
                                                         <div class="pull-right">
-                                                            <a href="slideaddslide.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create slide </i></a>
+                                                            <a href="banneradd.html" class="btn btn-primary" style="margin-top: -70px;"><i class="fa fa-plus"> Create banner </i></a>
                                                         </div>
                                                     </div>
                                                     <!-- /.panel-heading -->

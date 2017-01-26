@@ -225,13 +225,13 @@ include "init.php";
                           </div>
 
                           <div class="form-group">
-                              <label class="control-label col-sm-3" for="email">Promotion</label>
+                              <label class="control-label col-sm-3" for="email">Spacial</label>
                               <div class="col-sm-10">
                                   <label class="radio-inline">
-                                      <input type="radio" name="promotion" value="1">Promotion
+                                      <input type="radio" name="promotion" value="1">Spacial price
                                   </label>
                                   <label class="radio-inline">
-                                      <input type="radio" name="promotion" checked value="0">No promoton
+                                      <input type="radio" name="promotion" checked value="0">No spacial
                                   </label>
                               </div>
                           </div>
