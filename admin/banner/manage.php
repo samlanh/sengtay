@@ -16,7 +16,7 @@ include "init.php";
 
                                             $status=0;
                                             $disableid=$_GET['disableid'];
-                                            $stmtUp=$con->prepare("UPDATE tbl_slide SET status=? WHERE slide_id=?");
+                                            $stmtUp=$con->prepare("UPDATE tbl_banner SET status=? WHERE bannerID=?");
                                             $result=$stmtUp->execute(array($status,$disableid));
                                             if ($result){
                                                 echo "<div class='alert alert-success'>You unblock successfull </div>";
@@ -25,7 +25,7 @@ include "init.php";
                                         if (isset($_GET['publicid'])){
                                             $status=1;
                                             $publicid=$_GET['publicid'];
-                                            $stmtUp1=$con->prepare("UPDATE tbl_slide SET status=? WHERE slide_id=?");
+                                            $stmtUp1=$con->prepare("UPDATE tbl_banner SET status=? WHERE bannerID=?");
                                             $result=$stmtUp1->execute(array($status,$publicid));
                                             if ($result){
                                                 echo "<div class='alert alert-success'>You public successfull </div>";
@@ -37,7 +37,7 @@ include "init.php";
 
                                                     <div class="panel panel-default">
                                                     <div class="panel-heading">
-                                                       <h3 style="color: #428bca;">Manage slide</h3>
+                                                       <h3 style="color: #428bca;">Manage banner</h3>
 
 
                                                         <div class="pull-right">
@@ -54,8 +54,8 @@ include "init.php";
 
                                                                 <th>No</th>
                                                                 <th style="width: 120px;">IMG</th>
-                                                                <th>Slide title</th>
-                                                                <th>Order</th>
+                                                                <th>banner title</th>
+                                                                <th>Position</th>
                                                                 <th>Control </th>
 
 
@@ -67,7 +67,7 @@ include "init.php";
 
                                                             $stmt=$con->prepare("
                                                                       
-                                                                      SELECT * FROM tbl_slide  ORDER BY orderSlide ASC 
+                                                                      SELECT * FROM tbl_banner  ORDER BY bannerID DESC limit 5
                                                                       
                                   
                                                               ");
@@ -85,23 +85,25 @@ include "init.php";
 
                                                                 echo "<tr class='odd gradeX'>";
 
-                                                                echo"<td><input type='checkbox' name='del[]' value='".$row['slide_id']."' ></td>";
+                                                                echo"<td><input type='checkbox' name='del[]' value='".$row['bannerID']."' ></td>";
                                                                 echo "<td>". $i."</td>";
                                                               ?>
-                                                                <td ><img src="../img/slide/<?php echo $row['slide_image']?>" style="width: 100px; height: 35px; " ></td>
+                                                                <td ><img src="../img/banner/<?php echo $row['images_banner']?>" style="width: 100px; height: 35px; " ></td>
 
                                                                 <?php
 
 
 
-                                                                echo "<td><a title='Click to update slide' href='slide.php?do=edit&id=".$row['slide_id']."'>".$row['slide_tile']."</a></td>";
-                                                                echo "<td>".$row['orderSlide']."</td>";
+                                                                echo "<td><a title='Click to update banner' href='banner.php?do=edit&id=".$row['bannerID']."'>".$row['banner_title']."</a></td>";
+                                                                echo "<td>";
+                                                                    if ($row['position_ban']==1){echo "Left"; }else{echo "Right";}
+                                                                    echo "</td>";
                                                                 echo "<td >";
                                                                    if ($row['status']==1){
-                                                                   echo "<a title='Click to disable this article' href='slide.php?do=manage&disableid=".$row['slide_id']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";
+                                                                   echo "<a title='Click to disable this banner' href='banner.php?do=manage&disableid=".$row['bannerID']."' class='btn btn-info btn-xs'><i class='fa fa-toggle-up' ></i> Public </a>";
                                                                 }
                                                                 if ($row['status']==0){
-                                                                    echo "<a  title='Click to public slide' href='slide.php?do=manage&publicid=".$row['slide_id']."' class='btn btn-warning btn-xs'> <i class='fa fa-lock' ></i> Disable</a>";
+                                                                    echo "<a  title='Click to public banner' href='banner.php?do=manage&publicid=".$row['bannerID']."' class='btn btn-warning btn-xs'> <i class='fa fa-lock' ></i> Disable</a>";
                                                                 }
                                                                 echo" </td>";
                                                                 echo "</tr>";

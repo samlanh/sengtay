@@ -8,8 +8,8 @@ $id=$_GET['id'];
 
 
         if (isset($_POST['btnUpSlide'])){
-            $titleSlide=$_POST['titleSlide'];
-            $orderSlide=$_POST['orderSlide'];
+            $titlebanner=$_POST['titlebanner'];
+            $position=$_POST['position'];
 
             $imgFile = $_FILES['imagesUpdate']['name'];
             $tmp_dir = $_FILES['imagesUpdate']['tmp_name'];
@@ -20,7 +20,7 @@ $id=$_GET['id'];
 
 
             $errorPost = array();
-            if (empty($titleSlide)) {
+            if (empty($titlebanner)) {
                 $errorPost[] = '<div class="alert alert-danger alert-dismissable fade in" style="font-size: 15px;margin: 10px;">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <strong>Title!</strong>Please input title 
@@ -33,13 +33,13 @@ $id=$_GET['id'];
                 echo $errorShow;
             }
             if (empty($errorShow)){
-                $stmt=$con->prepare("SELECT * FROM tbl_slide WHERE slide_id='$id' limit 1");
+                $stmt=$con->prepare("SELECT * FROM tbl_banner WHERE bannerID='$id' limit 1");
                 $stmt->execute();
                 $rowsel1=$stmt->fetch();
 
                 if ($imgFile){
 
-                    $upload_dir = '../img/slide/'; // upload directory
+                    $upload_dir = '../img/banner/'; // upload directory
                     $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
                     $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
                     $imagesUpdate = rand(1000,1000000).".".$imgExt;
@@ -47,7 +47,7 @@ $id=$_GET['id'];
                     {
                         if($imgSize < 5000000)
                         {
-                            unlink($upload_dir.$rowsel1['slide_image']);
+                            unlink($upload_dir.$rowsel1['images_banner']);
                             move_uploaded_file($tmp_dir,$upload_dir.$imagesUpdate);
                         }
                         else
@@ -60,26 +60,27 @@ $id=$_GET['id'];
                         $errMSG = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
                     }
                 }else{
-                    $imagesUpdate = $rowsel1['slide_image'];
+                    $imagesUpdate = $rowsel1['images_banner'];
                 }
 
                 if (!isset($errMSG)){
 
-                    $stmt=$con->prepare("UPDATE tbl_slide SET
-                                                            slide_tile=?,slide_image=?,orderSlide=? WHERE slide_id=?
+                    $stmt=$con->prepare("UPDATE tbl_banner SET
+                                                            banner_title=?,images_banner=?,position_ban=? WHERE bannerID=?
                                                             ");
-                    $resultUpdate= $stmt->execute(array($titleSlide,$imagesUpdate,$orderSlide,$id));
+                    $resultUpdate= $stmt->execute(array($titlebanner,$imagesUpdate,$position,$id));
 
 
 
                     if ($resultUpdate){
                         echo "<script>
-document.location='slidemanage.html'</script>";
+document.location='bannermanage.html'
+</script>";
                     }else{
                         echo '
                     <div class="alert alert-danger alert-dismissable fade in" style="margin: 0 25px;">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Fail!</strong> '.$titleSlide.' update fail
+                        <strong>Fail!</strong> '.$titlebanner.' update fail
                     </div>
               ';
 
@@ -106,7 +107,7 @@ document.location='slidemanage.html'</script>";
 
 
 
-              $stmt=$con->prepare("SELECT *FROM tbl_slide WHERE slide_id='$id' limit 1");
+              $stmt=$con->prepare("SELECT *FROM tbl_banner WHERE bannerID='$id' limit 1");
               $stmt->execute();
               $rows=$stmt->fetchAll();
              foreach ($rows as $row1){
@@ -139,7 +140,7 @@ document.location='slidemanage.html'</script>";
                                              <label class="pull-right">Title</label>
                                          </div>
                                          <div class="col col-sm-10">
-                                             <input class="form form-control" type="text" name="titleSlide" value="<?php echo $row1['slide_tile'];?>" placeholder="Input slide name">
+                                             <input class="form form-control" type="text" name="titlebanner" value="<?php echo $row1['banner_title'];?>" placeholder="Input slide name">
                                          </div>
 
 
@@ -147,13 +148,13 @@ document.location='slidemanage.html'</script>";
                                      <div class="col col-sm-3"">
 
                                      <div class="form-group">
-                                         <label class="control-label col-sm-4">Order</label>
-                                         <div class="col-sm-8">
-                                             <select class="form-control" name="orderSlide">
-                                                 <option value="1" <?php if($row1['orderSlide']==1)echo "selected";?>>First slide</option>
-                                                 <option value="2" <?php if($row1['orderSlide']==2)echo "selected";?>>Second slide</option>
-                                                 <option value="3"<?php if($row1['orderSlide']==3)echo "selected";?>>Third slide</option>
-                                                 <option value="4"<?php if($row1['orderSlide']==4)echo "selected";?>>Last slide</option>
+                                         <label class="control-label col-sm-3">Position</label>
+                                         <div class="col-sm-9">
+                                             <select class="form-control" id="positionban" name="position">
+
+                                                 <option value="1" <?php if ($row1['position_ban']==1) echo "selected";?>>Position Left</option>
+                                                 <option value="2" <?php if ($row1['position_ban']==2) echo "selected";?>>Position Right</option>
+
 
                                              </select>
                                          </div>
@@ -162,21 +163,20 @@ document.location='slidemanage.html'</script>";
                                  </div>
                                  <div class="col col-sm-3">
 
-                                     <input id="uploadslide"  class="input-group" type="file" name="imagesUpdate" accept="image/*" />
+                                     <input id="upload_banner"  class="input-group" type="file" name="imagesUpdate" accept="image/*" />
                                  </div>
                                  <div class="col col-sm-12"><br>
-                                     <div class="slide_backend">
+                                     <div class="slide_banner">
 
-                                         <img src="../img/slide/<?php echo $row1['slide_image'];?>" style="height: 320px;width: 1004px;z-index: 1">
+                                         <img src="../img/banner/<?php echo $row1['images_banner'];?>" style="height: 80px; margin: 0px auto; ">
 
-                                         <div class="info" style="z-index: -1">
-                                             <h3>Recommend width 1024X340</h3>
+                                         <div class="info1">
+
 
                                          </div>
 
                                      </div>
                                  </div>
-
                              </div>
                          </div>
 
