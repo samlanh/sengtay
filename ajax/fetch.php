@@ -1,3 +1,5 @@
+<?php   include "../admin/connection.php";?>
+
 <div class="contaner" >
     <div class="specials">
         <nav class="category">
@@ -9,7 +11,7 @@
         <div id="specials_u">
             <?php
 
-            include "../admin/connection.php";
+
 
             $stmt = $con->prepare("SELECT * FROM tbl_article WHERE 	promotion='1' and trust='1' ORDER BY article ASC ");
             $stmt->execute();
@@ -21,8 +23,8 @@
                 <div class="tb_row">
                     <img src="img/<?php echo $rowSpacial['images_pro']; ?>" style=" position: absolute;left: 25px;"
                          width="200px" height="150px">
-                    <div class="priceShow"><span><del/>$<?php echo $rowSpacial['old_price']; ?></span> -
-                        $<?php echo $rowSpacial['new_price']; ?></div>
+                    <div class="priceShow"><span style="color:#3b5998; font-size:18px;"><del>$<?php echo $rowSpacial['old_price']; ?></del></span> 
+                        $<?php echo $rowSpacial['new_price']; ?>&nbsp</div>
                     <div class="tilePro">
                         <h3><?php echo $rowSpacial['article']; ?></h3>
                     </div>
@@ -41,7 +43,7 @@
                     }
 
                     ?>
-                    <div class="descripshow">
+                    <div class="descripshow" style="padding-left: 10px;">
                         <h5>
                             <?php echo $rowSpacial['descrip']; ?>
                         </h5>
@@ -70,7 +72,7 @@
         <div id="specials_u">
             <?php
 
-            include "admin/connection.php";
+
 
             $stmt = $con->prepare("SELECT * FROM tbl_article WHERE arrival_comming='0' and trust='1' ORDER BY article ASC ");
             $stmt->execute();
@@ -89,7 +91,7 @@
                     </div>
 
 
-                    <div class="descripshow">
+                    <div class="descripshow" style="padding-left: 10px;">
                         <h5>
                             <?php echo $rowSpacial['descrip']; ?>
                         </h5>
@@ -110,16 +112,23 @@
 
 <?php
 
-$stmt = $con->prepare("SELECT * FROM tbl_category WHERE tbl_category.trust='1'");
+$stmt = $con->prepare("SELECT * FROM tbl_category WHERE tbl_category.trust='1' and menu_id='26' ");
 $stmt->execute();
 $spacial = $stmt->fetchAll();
 
 foreach ($spacial as $rowCat) {
     $cat_id = $rowCat['category_id'];
     ?>
+
     <div class="promotion">
         <div class="specials">
             <nav class="category">
+                <il>
+                    <div class="categoryBannerShow1">
+                        <img src="img/banner/<?php echo $rowCat['cat_banner'];?>" style="height: 135px;">
+                    </div>
+                </il>
+
                 <li class="st_ca" id="<?php echo $rowCat['id_category'] ?>"><h6><?php echo $rowCat['category']; ?>
                         &nbsp<span class="head_spr"></span></h6></li>
                 <li class="hr_head">
@@ -130,10 +139,9 @@ foreach ($spacial as $rowCat) {
                 <?php
 
 
-                $stmt = $con->prepare("SELECT * FROM tbl_article WHERE category_id='$cat_id' and trust='1' ORDER BY article ASC ");
+                $stmt = $con->prepare("SELECT * FROM tbl_article WHERE category_id='$cat_id' and trust='1' and promotion='0' and arrival_comming='1'   ORDER BY article ASC ");
                 $stmt->execute();
                 $spacial = $stmt->fetchAll();
-
                 foreach ($spacial as $rowSpacial) {
                     ?>
 
@@ -160,7 +168,7 @@ foreach ($spacial as $rowCat) {
                         }
 
                         ?>
-                        <div class="descripshow">
+                        <div class="descripshow" style="padding-left: 10px;">
                             <h5>
                                 <?php echo $rowSpacial['descrip']; ?>
                             </h5>
