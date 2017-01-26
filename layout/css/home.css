@@ -311,7 +311,10 @@ td
 	font-size: 20px;
 	position: absolute;
 	top: 145px;
-	right: 40px;
+	right: 80px;
+	text-align: center;
+	font-weight: 700;
+
 }
 .tilePro h3{
 	color: #606060;
@@ -319,6 +322,7 @@ td
 	font-weight: 700;
 	position: absolute;
 	top: 160px;
+
 
 }
 .descripshow h5{
@@ -333,3 +337,7 @@ td
 
 }
 #topcontrol{z-index: 12;}
+.margueetext{float: left; margin-right: 50px;font-family: Khmer OS Content, Time New Roman;}
+.margueetext:hover{
+	color: green;
+}
