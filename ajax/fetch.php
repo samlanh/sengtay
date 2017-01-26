@@ -21,8 +21,8 @@
                 ?>
 
                 <div class="tb_row">
-                    <img src="img/<?php echo $rowSpacial['images_pro']; ?>" style=" position: absolute;left: 25px; text-align:center; max-width:200px;max-height:150px;"
-                       >
+                    <img src="img/<?php echo $rowSpacial['images_pro']; ?>" style=" position: absolute;left: 25px; ">
+                    
                     <div class="priceShow"><span style="color:#2c266e; font-size:18px;"><del>$<?php echo $rowSpacial['old_price']; ?></del></span>
 
                         $<?php echo $rowSpacial['new_price']; ?></div>
